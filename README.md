@@ -1,6 +1,6 @@
-# Goal:
-   make Java application that prints 
- __"Hello World"__ to the screen & exits 
+# Assignments and related works  
 
 
-- assignments & related works for COP2800  
+# Useful links: 
+
+
