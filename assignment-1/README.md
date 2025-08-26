@@ -1,4 +1,6 @@
-# Goal: make Java application that prints 
-# __"Hello World"__ to the screen & exits 
+# Goal:
+
+- make Java application that prints __Hello World__
+  to the screen & exits when complete 
 
 
