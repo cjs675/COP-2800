@@ -493,4 +493,47 @@ public class First
 ### correcting logic errors 
 - __logic error:__  
     - case where program errors arise not in syntactical regards but in differences between desired & real output/behaviors of program 
+    - ex's --> multiplying 2 values when addition was intended 
+           --> printing 1 copy of a biz report, when intention was to print 5
+           --> forgetting to produce total at end of biz report, when requested 
+- responsibility of programmer to test programs & find any logic errors 
+- a logic error is a __runtime error__ 
+- __runtime error:__ 
+    - error not detected until program asks computer to do something wrong, or even illegal while executing 
+    - not all are fault of programmer
+        - ex. hardware might fail while program is executing 
+    - good programming practices can help minimize runtime errors 
+
+- __Debugging:__ 
+    - process of fixing computer errors 
+    - originally coined when large moth found wedged in circuitry of mainframe at harvard in '47
+
+
+# adding comments to java class 
+
+- documenting program code helps one rememebr why certain lines were written in the way the were 
+- __Program Comments:__ 
+    - non-executing statements added to a program for purpose of documentation 
+    - designed to help readability of source code 
+
+- often used to leave notes for oneself, or others who might read code in future 
+- at very least, Java class files should include comments indicating: 
+    - author
+    - date
+    - class name or function 
+
+- best practices also dictate to include brief comment to describe purpose of each method created within a class 
+- add comments as first lines of every file --> should contain: 
+    - class name 
+    - purpose 
+    - your name
+    - date 
+- __commenting out__ statements can help during debugging 
+    - turns statement into comments so compiler doesn't translate it, & JVM doesn't execute its command 
+    - can help pinpoint location of errant statements in malfunctioning programs 
+
+- 3 types of comments in java: 
+    1. line comments 
+        - start with two forward slashes: __//__ 
+        - 
 
