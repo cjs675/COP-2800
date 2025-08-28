@@ -239,3 +239,12 @@ public class First
 } 
 ```
 
+ ```java 
+System.out.println("First Java application");```  
+
+- this statement does the actual _work_ of the program 
+- like all Java statements, this one ends with a semicolon 
+- most statements can be spread across as many lines as one chooses, as long as line breaks used appropriately  
+- usually want to place a short statement on single line 
+
+

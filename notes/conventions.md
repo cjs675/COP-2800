@@ -1,7 +1,11 @@
 ** common conventions used in java **
 
-- (not required for successful compilations)
-
 - begin class names with __UppercaseLetters__  
-    - ```public class CoffeeTable```
+ ```java 
+public class CoffeeTable
+```  
+- __all__ java statements end with ;
+```java
+System.out.println("Error: input not a string");
+```
 
