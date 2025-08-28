@@ -239,12 +239,212 @@ public class First
 } 
 ```
 
- ```java 
-System.out.println("First Java application");```  
+```java 
+System.out.println("First Java application");
+```  
 
 - this statement does the actual _work_ of the program 
 - like all Java statements, this one ends with a semicolon 
 - most statements can be spread across as many lines as one chooses, as long as line breaks used appropriately  
 - usually want to place a short statement on single line 
 
+- the text _First Java application_ is a __literal string__ of characters - a series of characters that will appear in output exactly as entered 
+- any literal string in Java is written between double quotation marks 
+- __literal strings__ cannot be broken and placed on multiple lines  
+ 
+```java 
+System.out.println("First Java application");
+```  
 
+- __System__ is a class 
+- __out__ is a property of the __System__ class 
+- Dots separate classes, objects & methods 
+- __println()__ is a method --> method names always followed by () 
+- __"First Java application"__ is a literal string that is the __argument__ to the __println()__ method 
+- every java statements ends with a __semicolon ;__ 
+
+- the string within the quotation marks appears within the parentheses because the string is an __argument__ to a __method,__ and arguments to methods __always__ appear within parentheses following the method name 
+
+- __Arguments:__ pieces of info sent into a method  
+- __Passing Arguments:__ act of sending arguments to a method 
+
+- __println()__ after output is displayed, insertion point moves to following line so that subsequent output is on new line 
+- __print()__ insertion point does __not__ advance to new line, so subsequent output appears at end of current line 
+
+
+### methods 
+
+- when calling methods, always use __()__ followed by __method name__ 
+- some can be left empty, while others require arguments to be passed in 
+    - ex. __showMessageDialog()__ method requires __2__ arguments 
+
+- within statement
+```java
+System.out.println("First Java application");
+``` 
+- __out__ is an object that is a property of the __System__ class; __out__ refers to the __standard output device__ for a system, normally the monitor 
+- __out__ object itself is an __instance__ of the __PrintStream__ class, which contains several methods, including __println()__ 
+
+- one could create the __out__ object and write the ixns within the __println__ method, but would be time consuming - included in std lib 
+    - __System__ and __PrintStream__ classes, the __out__ object and __println()__ and __print()__ methods were created as conveniences 
+
+```java 
+System.out.println("First Java application");
+```  
+- within this statement, __System__ is a class 
+    - defines attributes for __System__ objects, just as __Dog__ class defines attributes for __Dog__ objects 
+    - input & output are one of attributes of __System__ 
+
+- periods within the statement used to separate names of components in the statement
+
+- java is __case sensitive__ 
+- statement that displays the string __"First Java Application"__ contains the following: 
+    - a class name
+    - an object reference 
+    - a method call
+    - a method argument 
+    - a statement-ending semicolon 
+
+- the statement that displays the string cannot standalone; its embedded within a class 
+
+## Understanding the __First__ Class
+
+- everything used within a java program __must__ be a part of a class 
+- __public class First__ defines a class for which the name __First__ has been chosen 
+- can define a java class using any name or __identifier__, as long as it meets following requirements: 
+     - must begin with letter of english alphabet, non-english letter (alpha or pi), an underscore, or dollar sign 
+     - cannot begin with a digit 
+     - can only contain letters, digits, underscores or dollar signs 
+     - cannot be a reserved keyword, such as __public__ or __class__ 
+     - cannot be one of following (primitive) values: 
+        - true
+        - false
+        - null
+- following aren't keywords, but their use is restricted in some contexts: __permits, record, sealed, var, yield__ 
+    - better __not__ to use these as identifiers 
+
+### Java is based on Unicode 
+
+- unicode: intnl. system of character representation 
+
+
+### Conventional standards 
+
+- begin class identifiers with an __UppercaseLetter__ and employ other uppercase letters as needed to improve rfeadability 
+- __method identifiers__ like __println()__ conventionally begin with __lowercaseletters__  
+- __Pascal Casing:__ style that joins words in which beginning is uppercase 
+
+
+### ex's of valid class names 
+
+- __Employee__ 
+    - begins with uppercase letter 
+- __UnderGradStudent__
+    - begins with uppercase letter, contains no spaces, emphasizes each new word with an initial uppercase letter 
+- __InventoryItem__
+    - begins with an uppercase letter, contains no spaces, emphasizes 2nd word with an initial uppercase letter 
+- __Budget2024__ 
+    - begins with an uppercase & contains no spaces 
+
+### invalid class names 
+
+- __Inventory Item__ 
+    - space character = illegal identifier 
+- __class__
+    - reserved keyword 
+- __phone#__ 
+    - number symbol # = illegal identifier 
+
+
+```java
+public class First 
+{
+
+}
+``` 
+- in the example above: 
+    - the line as whole is the __class header__ 
+    - everything between { } is the __class body__ 
+    - keyword __class__ identifies __First__ as a class 
+    - __public__ is an access specifier 
+    - __First__ is the name of the class 
+
+
+### Understanding the __main()__ method 
+
+```java
+public class First
+{
+    public static void main(String[] args)
+        {
+            System.out.println("First java application");
+        }
+}
+
+``` 
+- in the example above:
+    - the line as a whole is the __method header__
+        - contains info about how other methods can interact with it 
+    - everything between { } is the __method body__ 
+    - __public__ is an access specifier 
+    - __static__ means this method works without instantiating and object of the class 
+    - __void__ is the method's return type 
+        - doesn't mean __main()__ doesn't produce output 
+        - means __main()__ method doesn't send any value back to any other method that might use it 
+    - __main()__ 
+        - name of the method  
+        - not all classes have a main method (many don't) 
+        - __ALL__ java applications must include a class containing a public method named __main()__     
+        - when executing a java app, the JVM always executes the __main()__ method first 
+    - __String__ is a class - any arguments to this method must be __String__ objects  
+        - in this line, __String[] args__ represent the type of argument that can be passed to the __println__ method 
+        - __String__ class is a java class that can be used to hold character strings 
+            - begins with an Uppercase Letter 
+        - brackets __[ ]__ following __String__ mean the argument is a list of __Strings__ 
+    - __args__ is the identifier of the array of __Strings__ that is the argument to the method 
+        - used to hold any __String__ objects that might be sent to the __main()__ method 
+        - __main()__ could do something with those arguments -> display them
+        - __must__ place an identifier within the __main()__ method's parentheses 
+            - identifier doesn't need to be named __args__ -- can be any legal java identifier, name __args__ is traditional 
+
+
+### indent style 
+
+- __whitespace:__ any comvo of nonprinting characters 
+    - optional in java 
+    - used to organize program code for readability 
+    - blank spaces ignored by compiler 
+    - cannot use whitespace within an identifier or keyword, or surrounding dots in any class-object method combo 
+
+- every { has a closing } 
+    - placement of { } not important to compiler 
+-java compiler doesn't care how one indents 
+- most important rule is to develop consistent style of which ones organization approves of
+
+```java 
+
+// k & r style 
+
+public class First{
+    public static void main(String[] args){
+        System.out.println("First java application");
+    }
+}
+
+// allman style 
+
+public class First 
+{
+    public static void main(String[] args) 
+    {
+        System.out.println("First java application");
+    }
+}
+```
+
+
+### saving a java class 
+- when you writer a java class, must save it using writable storage medium (disk, usb) 
+- if a class is __public__, must save the class in a file with __exactly__ the same name and a __.java__ extension 
+- ex --> with class above, file must be saved as __First.java__ 
+    - class & filename must match exactly, including cases 
