@@ -2,4 +2,6 @@
 
 - (not required for successful compilations)
 
-- begin class names with __UppercaseLetters__ 
+- begin class names with __UppercaseLetters__  
+    - ```public class CoffeeTable```
+
