@@ -447,4 +447,50 @@ public class First
 - when you writer a java class, must save it using writable storage medium (disk, usb) 
 - if a class is __public__, must save the class in a file with __exactly__ the same name and a __.java__ extension 
 - ex --> with class above, file must be saved as __First.java__ 
-    - class & filename must match exactly, including cases 
+    - class & filename must match exactly, including cases  
+
+
+# Compiling a java class & correcting syntax errors 
+
+
+- after having written & saved an application, 2 steps must occur before viewing app's output: 
+    1. must compile class written (source code) into __bytecode__ 
+    2. must use java interpreter to translate bytecode into executable statements 
+
+
+## compiling a java class 
+- cli based compilation: 
+    1. call compiler 
+        - javac First.java
+    2. call interpreter to run compiled bytecode 
+- after successful compilation. a file named (in this case) __First.class__ is created & saved in same folder as text file that contains source code (First.java)
+
+- __Compile-time errors:__ arise when compiler detects violation of language syntax rules & is unable to translate the source code to machine code 
+- when one compiles a class: 
+    - compiler reports as many errors as it can find so that you can fix as many as possible 
+    - sometimes, one error causes multiple error messages that normally wouldn't be eerors if the first syntax error didn't exist, so fixing one error might eliminate multiple error messages  
+
+
+# 1.6 Running a java application & correcting logic errors 
+
+- just b/c a program compiles & executes, doesn't mean its free of errors 
+
+### running a java app
+- "run" or "build" in ide
+- cli -> call java interpeter on compiled source code 
+    - __java First__ (using ex. from above) 
+
+
+### mod'ing compiled java class 
+- to alter output, modify text within __.java__ file containing existing class 
+- __recompile:__ changes made without re-compilation of the class do not change compiled bytecode, therefore do not affect output 
+    - when you recompile a class, og version of compiled file with __.class__ is replaced, & og no longer exists 
+- when modifying a class, must decide whether you want to retain og version
+    - yes: 
+        - give new version a new class name & filename 
+        - or, save in different folder 
+
+### correcting logic errors 
+- __logic error:__  
+    - case where program errors arise not in syntactical regards but in differences between desired & real output/behaviors of program 
+
