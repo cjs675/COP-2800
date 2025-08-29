@@ -509,7 +509,7 @@ public class First
     - originally coined when large moth found wedged in circuitry of mainframe at harvard in '47
 
 
-# adding comments to java class 
+# 1.7 adding comments to java class 
 
 - documenting program code helps one rememebr why certain lines were written in the way the were 
 - __Program Comments:__ 
@@ -533,7 +533,60 @@ public class First
     - can help pinpoint location of errant statements in malfunctioning programs 
 
 - 3 types of comments in java: 
-    1. line comments 
+    1. __line comments__ 
         - start with two forward slashes: __//__ 
-        - 
+        - require no ending symbol 
+        - can appear on standalone line, or at end of existing one with a statement
+    2. __block comments__ 
+        - start with forward slash & an asterisk & end with asterisk & forward slash: __/* */__
+        - can appear on line by itself, line before executable code, or on line after code 
+        - can extend across lines 
+    3. __Javadoc__ 
+        - special case of block comments called __documentation comments__ b/c used to auto generate nicely formatted program docs with _Javadoc_ program 
+        - begin with forward slash & two asterisks, followed by asterisk & one forward slash 
+        ```java 
+        /** example of a java doc 
 
+        lorem ipsum 
+
+        */
+        ```
+- might want to create comments simply for aesthetics 
+     - row of dashes or asterisks to use as visual line dividing parts of a program 
+- when mod'ing a program, important to change any relevant comments 
+
+# 1.8 creating java app that produces GUI output 
+
+- java provides built in classes to produce GUI output 
+- ex. class __JOptionPane__ allows creation of dialog boxes 
+- __dialog box:__ 
+    - GUI object resembling window where messages can be displayed 
+
+- example of code to produce dialog box: 
+
+```java 
+import javax.swing.JOptionsPane;
+
+public class FirstDialog{
+    public static void main(String[] args){
+        JOptionPane.showMessageDialog(null, "First java dialog");
+    }
+}
+```
+        
+- __import statements:__ used to access built-in java classes contained in a group of classes called a __package__ 
+- to use __JOptionPane__ class, must import package named __javax.swing.JOptionPane__ 
+- any import statement used must be placed outside of any class written in a file 
+- __Note:__ 
+    - don't need to import any packages when using the __System__ class (System.out.println() method) b/c __System__ class is contained in package __java.lang__, which is auto imported in __every__ java program 
+    - we could __import java.lang__ at top of any file in which __System__ class used, but not required 
+
+
+- Ex. (above)
+    - second statement within __main()__ method in __FirstDialog__ class uses __showMessageDialog__ method which is part of __JOptionPane__ class 
+    - __showMessageDialog__ method requires __two__ arguments 
+        - whenever a method requires >1 args, they're separated by commas 
+        ex. __JOptionPane.showMessageDialog(null, "Success");__ 
+
+    - when first arg to __showMessageDialog()__ is __null__, => output message box should be placed in center of screen 
+    - second arg to __showMessageDialog()__ is literal string that is displayed 
