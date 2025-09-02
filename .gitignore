@@ -1,5 +1,12 @@
 ### Java template
-# Compiled class file
+
+# .gitignore created using intelliJ "auto-create" git ignore function
+
+
+# Always ignore build outputs
+out/
+target/
+build/
 *.class
 
 # Log file
