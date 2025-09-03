@@ -1,12 +1,33 @@
-on: [push, pull_request]
+name: continuous integration 
+
+on:
+  push:
+    paths:
+      - '**/*.md'
+  pull_request:
+    paths:
+      - '**/*.md'
 
 jobs:
+  prettier:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Prettify Markdown
+        uses: creyD/prettier_action@v4.6
+        with:
+          prettier_options: --write **/*.md
+          # If you want to auto-commit the changes, add:
+          # commit_message: 'chore: format markdown with Prettier'
+
   lint:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v5
-    - uses: DavidAnson/markdownlint-cli2-action@v20
-      with:
-        globs: |
-          *.md
-          !test/*.md
+      - uses: actions/checkout@v4
+      - name: Markdownlint
+        uses: DavidAnson/markdownlint-cli2-action@v20
+        with:
+          globs: |
+            **/*.md
+            !test/*.md
