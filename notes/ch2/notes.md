@@ -200,6 +200,71 @@ public class NumbersDialog{
 ```
 
 
+### pitfall: forgetting that a variable holds one value at a time 
+
+- each variable can hold just one value at a time 
+- suppose we have two vars: __x & y__ 
+  - x = 2
+  - y = 10
+  - suppose we wish to switch their values → x = y & y = x 
+  - can't simply reassign x = y, then both variables will hold 10, 2 will be lost 
+    - if you make assignment y = x, then both variables will hold 2, 10 will be lost 
+  - __solution:__ declare 3rd variable: 
+
+```java 
+int x = 2, y = 10, z;
+z = x;
+x = y;
+y = z;
+```
+- in this example, the third variable __z__ is used as a temporary holding spot for one of og values
+  - variable __z__ is assigned value of __x,__ so __z__ becomes 2
+  - then, value of __y__, 10, is assigned to __x__
+  - finally, the 2 held in __z__ is assigned to __y__
+  - the extra variable __(z)__ is used because as soon as you assign a value to a variable, any value that was previously
+in the memory location is now gone
+
+
+## learning about integer data types 
+
+- in java, can use variables of data types:
+  - byte 
+  - short
+  - int
+  - long
+to store or hold integers 
+- __integer:__ whole number w/o decimal places 
+  - __int__ most commonly used integer type 
+  - can use underscores in numbers - typically used to make long numbers easier to read 
+```corporateBudget = 8_435_000;```
+
+- data types __byte, short, long__ all variations of __int__ type 
+- __byte__ and __short__ types occupy less memory & can hold smaller values 
+- __long__ type occupies more memory & can hold larger values 
+- important to choose __appropriate__ types for variables used in an application: 
+  - if you attempt to assign a value that's too large for the data type of the variable, compielr issues an error message, app doesn't execute 
+  - choose data-type larger than required, waste memory
+
+| type  | min val                    | max val                    | size (in bytes) |
+|-------|----------------------------|----------------------------|-----------------|
+| byte  | -128                       | 127                        | 1               |
+| short | -32,768                    | 32,767                     | 2               |
+| int   | -2,147,483,648             | 2,147,483,647              | 4               |
+| long  | -9,223,372,036,854,775,808 | 9,223,372,036,854,775,808  | 8               |
+
+
+
+- Ex. a personnel application might use a __byte__ varibale for number of dependents (limit = 127)
+  - __short__ for hours worked in a month (because max 127 isnt enough)
+  - __int__ for annunal salary (max 32,767 too small for upper roles)
+
+- if an application uses a literal constant integer, such as __932__ the number is an __int__ by default 
+  - if constant > __int__ needed, __must__ follow number with letter __L__ to indicate __long__ 
+  - ex. ```long mosquitosInTheNorthWoods = 2444555888L```
+- no need for special notation to store numeric constant in __int, byte or short__ 
+
+
+
 
 
 
