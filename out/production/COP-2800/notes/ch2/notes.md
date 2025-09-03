@@ -422,6 +422,24 @@ char aTabChar = '\t'; // tab character stored in aTabChar char variable
   - start & end with three double quotes """ """
 
 
+## using __Scanner__ class to accept keyboard input
+
+- to create interactive programs that accept input from a user, can use __System.in__ 
+  - __standard input__ device (normally keyboard)
+- __System.in__ not as flexible
+  - designed to only read in bytes 
+  - __Scanner__ class makes System.in more flexible
+
+- to create a __Scanner__ object & connect it to __System.in__ object, write a statement similar to following: 
+```java 
+Scanner inputDevice = new Scanner(System.in);
+```
+- portion of statement to left of assignment operator, __Scanner inputDevice__ declares an object of type __Scanner__ with name __inputDevice__ 
+- portion of statement to right of assignment operator, __new Scanner(System.in)__ creates a Scanner object that is connected to the __System.in__ property
+- in other words, the created Scanner object is connected to the default input device 
+- keyword __new__ required by Java; used whenever objects more complex than primitive data types are created 
+
+
 
 
 
