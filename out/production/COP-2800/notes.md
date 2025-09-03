@@ -200,20 +200,226 @@ public class NumbersDialog{
 ```
 
 
+### pitfall: forgetting that a variable holds one value at a time 
+
+- each variable can hold just one value at a time 
+- suppose we have two vars: __x & y__ 
+  - x = 2
+  - y = 10
+  - suppose we wish to switch their values → x = y & y = x 
+  - can't simply reassign x = y, then both variables will hold 10, 2 will be lost 
+    - if you make assignment y = x, then both variables will hold 2, 10 will be lost 
+  - __solution:__ declare 3rd variable: 
+
+```java 
+int x = 2, y = 10, z;
+z = x;
+x = y;
+y = z;
+```
+- in this example, the third variable __z__ is used as a temporary holding spot for one of og values
+  - variable __z__ is assigned value of __x,__ so __z__ becomes 2
+  - then, value of __y__, 10, is assigned to __x__
+  - finally, the 2 held in __z__ is assigned to __y__
+  - the extra variable __(z)__ is used because as soon as you assign a value to a variable, any value that was previously
+in the memory location is now gone
+
+
+## 2.2 learning about integer data types 
+
+- in java, can use variables of data types:
+  - byte 
+  - short
+  - int
+  - long
+to store or hold integers 
+- __integer:__ whole number w/o decimal places 
+  - __int__ most commonly used integer type 
+  - can use underscores in numbers - typically used to make long numbers easier to read 
+```corporateBudget = 8_435_000;```
+
+- data types __byte, short, long__ all variations of __int__ type 
+- __byte__ and __short__ types occupy less memory & can hold smaller values 
+- __long__ type occupies more memory & can hold larger values 
+- important to choose __appropriate__ types for variables used in an application: 
+  - if you attempt to assign a value that's too large for the data type of the variable, compielr issues an error message, app doesn't execute 
+  - choose data-type larger than required, waste memory
+
+| type  | min val                    | max val                    | size (in bytes) |
+|-------|----------------------------|----------------------------|-----------------|
+| byte  | -128                       | 127                        | 1               |
+| short | -32,768                    | 32,767                     | 2               |
+| int   | -2,147,483,648             | 2,147,483,647              | 4               |
+| long  | -9,223,372,036,854,775,808 | 9,223,372,036,854,775,808  | 8               |
 
 
 
+- Ex. a personnel application might use a __byte__ varibale for number of dependents (limit = 127)
+  - __short__ for hours worked in a month (because max 127 isnt enough)
+  - __int__ for annunal salary (max 32,767 too small for upper roles)
+
+- if an application uses a literal constant integer, such as __932__ the number is an __int__ by default 
+  - if constant > __int__ needed, __must__ follow number with letter __L__ to indicate __long__ 
+  - ex. ```long mosquitosInTheNorthWoods = 2444555888L```
+- no need for special notation to store numeric constant in __int, byte or short__ 
 
 
+## 2.3 using the __boolean__ data type 
+
+- boolean logic based on true-false comparisons 
+- can only hold 1 of 2 values
+
+```java
+boolean isItPayday = true;
+boolean areYouBroke = false;
+```
+
+- are allowed to use any legal identifier for boolean variables, however are more easily identifiable when used in _to be_ form 
+  - such as _is_ or _are_ 
+  - __isItPayDay__ 
+  - __userIsActive__
+  - __accountExists__ 
+- besides assigning __true__ and __false__, can also assign value to a boolean variable based on comparison 
+- java supports __six__ relational operators that are used to make comparisons 
+- __relational operator:__ compares two items (aka comparison operator)
+  - value of an expression that contains a relational operator is always __true or false__ 
+
+| operator | description              | ex         |
+|----------|--------------------------|------------|
+| <        | less than                | 2 < 5      |
+| >        | greater than             | 5 > 1      |
+| ==       | equal to                 | 7 == 7     |
+| <=       | less than or equal to    | 5 <=       |
+| >=       | greater than or equal to | 10 >= 9    |
+| !=       | not equal to             | 100 != 101 |
 
 
+- cannot place any whitespace between two symbols 
+- cannot reverse order of symbols 
+
+```java
+// examples of legal declarations 
+
+boolean isSixBigger = (6 > 5);
+// value stored would be true 
+boolean isSevenSmallerOrEqual = ( 7 <= 4);
+/* bool expressions more meaningful when var is used for one or both of operands in a comparison
+        in the following examples, a variable is compared to a literal constant (40),
+        a variable is compared to a named constant (HIGH_CUTOFF), 
+        and two variables are compared
+*/
+boolean isOvertimePay = (hours > 40);
+boolean isTaxBracketHigh = (income > HIGH_CUTOFF);
+boolean isFirstScoreHigher = (score1 > score2);
+```
 
 
+## 2.4 floating point data types 
+
+- floating-point number contains decimal positions 
+  - can be imprecise 
+- java supports two float types: 
+  - __float__ 
+    - can hold floating point values of up to six or seven sigfigs 
+  - __double__
+    - requires more memory
+    - can hold 14-15 sigfigs of accuracy 
+- __significant digits__ 
+  - refers to mathematical accuracy of a value 
+
+- a value stored in a __double__ is a __double-precision floating point number__ 
+- a value stored in a __float__ is a __single-precision floating point number__ 
+
+- limits on floating-point values
+
+| type   | min           | max          | size in bytes |
+|--------|---------------|--------------|---------------|
+| float  | -3.4 * 10^38  | 3.4 * 10^38  | 4             |
+| double | -1.7 * 10^308 | 1.7 * 10^208 | 8             |
+
+- just as an integer constant, such as 18, is a value of type __int__ by default, a floating-point constant, such as 18.23 is a __double__ by default 
+- to indicate that a floating-point numeric constant is a __float__ -> can type letter __F__ after the number: 
+```float pocketChange = 4.87F```
+- can type __D__ (or d) after a floating-point constant to indicate it is a double, even without the __D__ value will be stored as __double__ by default 
 
 
+## 2.5 using the __char__ data type
 
+- used to hold any single character 
+- place constant character values within a single quotation __' '__ because computer stores characters & integers differently 
+- following are typical character declarations: 
+```java 
+char middleInitial = 'J';
+char gradeInCOP2800 = 'A';
+char aStar = '*';
+```
 
+- __char__ can be any letter - upper or lowercase
+  - can also be punctuation mark or digit 
+- __char__ that is a digit is represented in computer memory differently from a numeric value represented by the same digit 
+- the following two statements are legal
 
+```java
+char aCharValue = '9';
+int aNumValue = 9;
+```
+- displaying both statements using a __println()__ statement is possible, and you will see 9 as output
+  - however, only the __int__ value can be used to represent value 9 in arithmetic statements
+- a numeric constant can be stored in a character variable
+  - a character that represents a number can be stored in a numeric variable
+
+- ex. following two statements are legal, but unless their meanings are understood, they might produce undesirable outputs; 
+```java 
+char aCharValue = 9; // returns blank (must be in '')
+int aNumValue = '9'; // returns 57 (single quotes taken as unicode
+```
+
+- a variable of type __char__ can hold only one character 
+- to store a string of characters, such as a name, must use data structure called __String__ 
+  - __String__
+    - built-in class that provides means of storing & manipulating character strings 
+    - written between double quotations ( " a string ")
+```java
+String firstName = "Joseph";
+```
+
+- any character - including nonprinting characters such as backspace or a tab can be stored in a __char__ variable 
+  - to store, use __escape sequence__ 
+    - always begins with backslash followed by a character 
+    - pair represents a single character 
+```java
+char aNewLine = '\n'; // newline character stored in aNewLine char variable 
+char aTabChar = '\t'; // tab character stored in aTabChar char variable 
+                      // moves cursor to next tab stop 
+```
+
+- common escape sequences: 
+
+| escape sequence | description                                                |
+|-----------------|------------------------------------------------------------|
+| \b              | backspace, moves cursor one space to left                  |
+| \t              | tab, moves cursor to next tab stop                         |
+| \n              | newline or linefeed; moves cursor to beginning of newline  |
+| \r              | carriage return; moves cursor to beginning of current line |
+| \"              | double quotation mark; displays a double quotation mark    |
+| \'              | single quotation mark, displays single quotation mark      |
+| \\              | backslash; displays backslash character                    |
+
+- __Note:__ 
+  - when displaying values within __JOptionsPane__ dialog boxes rather than in terminal, escape sequences 
+    - '\t'
+    - '\b'
+    - '\r'
+    - don't work in GUI environment 
+
+- multiple methods of producing console output on multiple lines in terminal: 
+  - use newline escape sequences with single __println()__ call 
+  - call __println()__ method multiple times 
+  - use text blocks 
+
+- text blocks have been added to to java lang starting in __Java 13__ 
+- __text block:__ multiline string literal that voids the need for an escape sequence to display output on multiple lines 
+  - start & end with three double quotes """ """
 
 
 
