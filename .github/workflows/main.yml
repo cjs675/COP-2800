@@ -18,8 +18,7 @@ jobs:
         uses: creyD/prettier_action@v4.6
         with:
           prettier_options: --write **/*.md
-          # If you want to auto-commit the changes, add:
-          # commit_message: 'chore: format markdown with Prettier'
+          commit_message: 'chore: format markdown with Prettier'
 
   lint:
     runs-on: ubuntu-latest
