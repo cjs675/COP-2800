@@ -1,5 +1,5 @@
-// example showing how integer data types are used + printed to console
 
+// example showing how integer data types are used + printed to console
 public class IntegerDemo {
     public static void main(String[] args) {
         int anInt = 1234;

@@ -422,7 +422,7 @@ char aTabChar = '\t'; // tab character stored in aTabChar char variable
   - start & end with three double quotes """ """
 
 
-## using __Scanner__ class to accept keyboard input
+## 2.6 using __Scanner__ class to accept keyboard input
 
 - to create interactive programs that accept input from a user, can use __System.in__ 
   - __standard input__ device (normally keyboard)
@@ -438,11 +438,86 @@ Scanner inputDevice = new Scanner(System.in);
 - portion of statement to right of assignment operator, __new Scanner(System.in)__ creates a Scanner object that is connected to the __System.in__ property
 - in other words, the created Scanner object is connected to the default input device 
 - keyword __new__ required by Java; used whenever objects more complex than primitive data types are created 
+- assignment operator in __Scanner__ declaration statement assigns value of new object(its memory address) to variable __inputDevice__ in the program 
+- __Scanner__ class is a built-in class
+  - contains methods that retrieve values from an input device
+- each retrieved value is a __token__ 
+  - __token__ 
+    - set of characters that is separated from the next set by whitespace 
+    - in this case, most often means data is accepted when user presses Enter, can also mean a token is accepted after a space or a tab 
+- doesn't contain a __nextChar__ method 
+  - to retrieve single character, can use __nextLine()__ & __charAt()__ methods
+  
+| method       | description                                          |
+|--------------|------------------------------------------------------|
+| nextDouble() | retrieves input as double                            |
+| nextInt()    | retrieves input as an int                            |
+| nextLine()   | retrieves next line of data & returns it as a String |
+| next()       | retrieves next complete token as String              |
+| nextShort()  | retrieves input as a short                           |
+| nextByte()   | retrieves input as a byte                            |
+| nextFloat()  | retrieves input as a float                           |
+| nextLong()   | retrieves input as a long                            |
 
 
+- __echoing output:__ repeating output as values user has entered 
+- if any of the __Scanner__ methods used cannot convert the next token to the right data type, an error will be thrown 
+- __prompt:__ message displayed for the user that describes & requests input 
 
+### pitfall: using __nextLine()__ following one of the other __Scanner__ input methods 
+- can encounter problem when using one of the numeric __Scanner__ class retrieval methods or the __next()__ method before 
+__nextLine()__ method is used 
+- if you accept __numeric__ input prior to the __string__ input, the string input is ignored unless you take special action 
+- when a user types data followed by the __Enter__ key, the Enter key character is left in the keyboard buffer after __Scanner__
+class methods retrieve the other keystrokes 
+- __solution:__ 
+  - after any __next(), nextInt(), or nextDouble()__ call, you can add an extra __nextLine()__ method call that will retrieve the abandones 
+  Enter key character 
+  - this way, the program will execute smoothly regardless of the input that follows 
 
+    
+## 2.7 using the __JOptionsPane__ class to accept GUI input 
 
+- we can accept input in a GUI dialog box using the __JOptionsPane__ class 
+- two dialog boxes that can be used to accept user input: 
+  - __InputDialog__ - prompts user for text input 
+  - __ConfirmDialog__ - asks the user a question, providing buttons the user can click for __Yes, No, Cancel__ responses 
 
+### using input dialog boxes 
+- __input dialog box:__ asks a question & proivdes text field where the user can enter a response 
+  - created using __showInputDialog()__ method 
+    - 6 versions available 
+  - returns a __String__ that represents a user's response 
+    - in this way, we can assign the __showInputDialog()__ method to a __String__ variable and the variable will hold the value the user enters 
+- a different versio nof the __showInputDialog()__ method required __four__ arguments that allow the programmer flexibility in controlling the appearance of the input dialog box 
+- four args to __showInputDialog()__ include: 
+  - the parent component (screen component), such as the frame, in front of which the dialog box will appear 
+    - __null__ → dialog box is centered on the screen 
+    - message user will see before entering a value (usually a String - can be any type of object)
+    - title to be displayed in the title bar of the input dialog box 
+    - class field describing the type of dialog box; can be one of the following:
+      - ERROR_MESSAGE
+      - INFORMATION_MESSAGE
+      - PLAIN_MESSAGE
+      - QUESTION_MESSAGE
+      - WARNING_MESSAGE
 
+__Recall:__ 
+    - reserved keyword __static__ means a method is accessible & usable even though no objects of the class exist 
+    - ex. We can tell the method __Double.parseDouble()__ is a __static__ method since the method name is used with the class name __Double_— no object is needed 
 
+### using confirm dialog boxes
+- sometimes, input you want from a user doesn't have to be typed from keyboard 
+- when presenting simple options to a user, can offer buttons user can click through to confirm a choice 
+- __confirm dialog box:__ displays options _Yes, No, Cancel_ can be created using __showConfirmDialog()__ method in __JOptionsPane__ class 
+  - four versions available, simplest requiring parent component (can be null) & __String__ promp that is displayed in the box of the button 
+- __showConfirmDialog()__ returns an integer containing one of the three possible values: 
+  - JOptionPane.YES_OPTION
+  - JOptionPane.NO_OPTION
+  - JOptionPane.CANCEL_OPTION
+
+- see /examples/AirlineDialog class for an example using a dialog box to ask a user a question, then showing the output when the user selects yes 
+  - the user's response is stored in the integer variable __selection__, & the boolean variable __isYes__ is set to the result when __selection__ and __JOptionPane.YES_OPTION__ are compared 
+    - if the user has selected the Yes button in the dialog box, this variable is set to __true__
+    - otherwise, the variable is set to __false__ 
+    - finally, __true__ or __false__ is displayed 
