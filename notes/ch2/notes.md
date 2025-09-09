@@ -571,13 +571,118 @@ __Recall:__
 - you can make programs operate more effectively if you avoid unnecessary repetition of arithmetic statements 
 - ex. suppose you know the values for an employee's hourly pay & pay rate, & you wish to compute state + federal withholding tax based on known rates 
   - you could write two statements as follows: 
-    ```java
-    stateWithholding = hours * rate * STATE_RATE;
-    federalWithholding = hours * rate * FED_RATE;
-    ```
-    
+```
+  stateWithholding = hours * rate * STATE_RATE;
+  federalWithholding = hours * rate * FED_RATE;
+``` 
+- with this approach, the multiplication of __hours * rate__ is done twice
+  - its more efficient to perform the calculation once, as follows: 
+```
+grossPay = hours * rate;
+stateWithholding = grossPay * STATE_RATE;
+federalWithholding = grossPay * FEDERAL_RATE;
+```
 
-    
+### imprecisions in floating point numbers 
+- because floats can't be precisely represented in binary format used by computers, there are some imprecisions with their use 
+- when you produce floating point output, it might not look how you expect 
+- when making comparisons between floats, they might not be what you expect 
+- can use several techniques to round values & correctly format floats so they display the desired number of decimal position
+
+## 2.9 understanding type conversion 
+- arithmetic done between variables/constants of the same type result in values of the same type 
+- __type conversion:__ process of converting one data type to another 
+  - some type conversions performed automatically 
+  - can also be explicitly requested 
+
+### automatic type conversion 
+- performing arithmetic with operands of unlike types calls for using Java's unifying type for the result 
+- __unifying type:__ type to which all operands in an expression are converted so that they are compatible with each other 
+- java performs __implicit conversion__ 
+  - automatically converts nonconforming operands to the unifying type 
+  - implicit conversions aka __promotion__
+- order for establishing unifying types between values: 
+```
+double          ^
+                |
+float           |
+                |
+long            |
+                |
+int             | 
+
+short and byte are auto-converted to int when used in expressions 
+``` 
+- when two unlike types are used in an expression, the unifying type is the one that is higher in the list 
+- in other words, when an operand is a type lower on the list is combined with a type that is higher,
+the lower-type operand is converted to the higher one 
+- ex. addition of __double__ and an __int__ results in a __double__ 
+  - subtraction of a __long__ and a __float__ results in a __float__ 
+- __Note:__ boolean values __cannot__ be converted to another type (unlike c++)
+```
+int hoursWorked = 37;
+double payRate = 16.73;
+double grossPay = hoursWorked * payRate;
+
+// the result of multiplication here is a double 
+// when an int & double are multiplied, the int is promoted to the 
+// higher ranking unifying type: double  
+
+```
+- the following code will __not__ compile - __hoursWorked__ times __payRate__ is a __double__, and Java doesn't allow 
+loss of precision that occurs if you try to store the calculated __double__ result in an __int__ 
+
+```
+int hoursWorked = 35;
+double payRate = 19.10;
+
+int grossPay = hoursWorked * payRate;
+
+// will not compile --> loss of precision "downgrading" on scale of unifying types 
+```
+
+
+- the data types __char__, __short__ and __byte__ all are promoted to __int__ when used in statements with unlike types 
+- if you perform a calculation with any combo of __char, short, byte__ values, the result is an __int__ by default 
+- __ex.__ add two bytes, result => __int__, not a byte 
+
+### explicit type conversion 
+- can purposely override unifying type by performing type case 
+- __type casting__ forces value of one data type to be used as a value of another type 
+- to perform a type case, a __cast operator__ is used, created by placing desired result type in parentheses 
+- using a cast operator is an __explicit conversion__
+- it can be easy to lost data when performing a cast (if handled improperly - recall amount of data available to each individual primitive type)
+- more commonly referred to as __unary cast operator__
+  - different from binary operator (which requires two operands)
+  - only uses one operand 
+  - unary cast operator followed by its operand 
+- the cast operator does __not__ permanently alter any variable's data type 
+  - only for duration of current operation 
+- no need for performing type cast when assigning value to a higher unifying type 
+  - __ex.__ when writing statements such as following, compiler automatically promotes integer constant 10 to a __double__ so it can be stored in __payRate__ variable: 
+```
+double payRate = 10 
+// for clarity, if you want to assign 10 to payRate, might prefer: 
+
+double payRate = 10.0;
+
+// result => identical whether literal double 10.0 or literal int 10 
+// is assigned to the double variable 
+```
+```
+double bankBalance = 189.66;
+float weeklyBudget = /* explicit type defined here */ (float) (bankBalance / 4); 
+
+/* weeklyBudget is 47.415, 1/4 of bankbalance 
+- since bankBalance is of type double, the result of weeklyBudget (of type float) if 
+  explicitly stated would be promoted to a double type 
+- by explicitly casting the type of float to weeklyBudget we can guarantee it 
+  is of type float, and not double 
+*/
+```
+
+
+
 
     
     

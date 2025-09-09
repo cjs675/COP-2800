@@ -1,0 +1,43 @@
+In this assignment, we are going to write a program
+that performs useful conversions between common units of measurement.
+
+  First, you will identify the units to convert from, the units to convert to,
+  and then the value to be converted as the inputs to the program.
+  Based on the options specified by the user, perform the requested conversion and
+  report the result.
+
+
+
+The units your program should support, at minimum, are:
+
+inches, feet, cubits, steps, yards, miles
+This means when you are done, the program should be able to convert to/from any of the units.
+
+After coding the program, run it and test it.  If there are errors, fix them, until the program works correctly.
+
+Code should be appropriately commented.  Proper variable naming conventions and other programming standards should be followed.
+
+Turn in the .java source file
+
+
+
+pseudocode
+
+final double INCHES_IN_FEET = 12;
+final double FEET_IN_YARDS = 3;
+final double FEET_IN_MILES = 5280;
+final double YARDS_IN_MILES = 1760;
+final double INCHES_IN_CUBITS = 18;
+final double FEET_IN_CUBITS = 1.5;
+final double STEPS_IN_YARDS =
+final double INCHES_IN_STEPS =
+final double CUBITS_IN_MILES = ;
+
+class to take user input
+class for JOptionPane dialog box
+class for constants?
+class for "stepping" down on unit scale
+    can we typecast custom types? o
+
+
+
