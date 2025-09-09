@@ -14,16 +14,19 @@ public class ArithmeticDemo
         double average;
 
 
+        System.out.println("*".repeat(50)
+                + "\n\t\twelcome to the arithmetic demo\n"
+                + "*".repeat(50));
         // declaration of a new scanner object
         // named input to accept keyboard input
         // takes System.in as its argument
         Scanner input = new Scanner(System.in);
 
         // prompt user for & accept two integers
-        System.out.println("Please enter a number, whole or partial:  ");
+        System.out.println("\nPlease enter a number, whole or partial:  ");
         firstNumber =  (float) input.nextDouble();
 
-        System.out.println("Please enter another number, whether whole or partial:  ");
+        System.out.println("\nPlease enter another number, whether whole or partial:  ");
         secondNumber =  (float) input.nextDouble();
 
         // perform arithmetic, creating variables storing values of each
@@ -40,14 +43,14 @@ public class ArithmeticDemo
         // println() statements, include concatenation
         // of multiple statements
 
-        System.out.println(firstNumber + " + " +
+        System.out.println("\n" + firstNumber + " + " +
                 secondNumber + " is " + sum);
-        System.out.println(firstNumber + " - " +
+        System.out.println("\n" + firstNumber + " - " +
                 secondNumber + " is " + difference);
-        System.out.println("the average of " + firstNumber +
+        System.out.println("\nthe average of " + firstNumber +
                 " and " + secondNumber + " is \n" + average);
-        System.out.println("the difference of " + firstNumber +
-                " and " + secondNumber + " is \n " + difference);
+        System.out.println("\nthe difference of " + firstNumber +
+                " and " + secondNumber + " is \n" + difference);
     }
 }
 

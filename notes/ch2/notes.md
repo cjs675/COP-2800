@@ -651,7 +651,7 @@ int grossPay = hoursWorked * payRate;
 - __type casting__ forces value of one data type to be used as a value of another type 
 - to perform a type case, a __cast operator__ is used, created by placing desired result type in parentheses 
 - using a cast operator is an __explicit conversion__
-- it can be easy to lost data when performing a cast (if handled improperly - recall amount of data available to each individual primitive type)
+- it can be easy to lose data when performing a cast (if handled improperly - recall amount of data available to each individual primitive type)
 - more commonly referred to as __unary cast operator__
   - different from binary operator (which requires two operands)
   - only uses one operand 
@@ -681,7 +681,55 @@ float weeklyBudget = /* explicit type defined here */ (float) (bankBalance / 4);
 */
 ```
 
+```
+float myMoney = 47.82f;
+int dollars = (int) myMoney;
 
+// dollars is 47, the integer part of myMoney 
+// myMoney gets casted from being a float to an int 
+```
+- in the above example, __float__ value __myMoney__ is converted to an __int__ before its stored in the integer variabled named __dollars__ 
+- when the __float__ value is converted to an __int,__ the decimal place values are lost 
+- the cast operator __does not__ permanently alter any variable's type, only for duration of current operation 
+- 
+
+
+### summary
+
+
+- variables are named memory locations in which programs store values; the value of the variable can change 
+  - must declare variables by providing type & name 
+  - java provides for 8 primitive types: __boolean, byte, char, double, float, int, long, short__ 
+  - named __constant:__ memory location that holds value that can't be changed after being assigned 
+    - preceeded by keyword __final__ 
+- variable of type __int__ can hold any number from __-2,147,483,648__ to __2,147,483,647__ 
+  - types __byte, short, long__ are variations of the integer type 
+- a __boolean__ variable can hold a __true__ or __false__ value 
+- java supports __six__ relational operators: 
+  - __<, >, ==, >=, <=, !=__ 
+- floats contain decimal positions 
+  - 2 float types supported in java: __float & double__ 
+- __char__ data type used to hold single character 
+  - constant character values are typed between double quotation marks
+  - __String__ constants placed between double quotation marks
+  - characters can be stored using an escape sequence, which always starts with a backslash 
+- __Scanner__ class & __System.in__ object can be used to accept user input from keyboard 
+  - several methods available to convert input to usable data 
+    - __nextDouble()__ 
+    - __nextInt()__ 
+    - __nextLine()__
+- can accept input using __JOptionPane__ class 
+  - __showInputDialog()__ method returns a __String__ which must be converted to a number using a type-wrapper class before it can be used as a numeric value 
+- five standard arithmetic operators: 
+  - __+, -, *, /, %__ 
+  - operator precedence: order in which parts of math expression is evaluated 
+    - multiplication, division, & remainder always take place prior to add, sub in an expression 
+      - parentheses can be added to change precedence
+- when you perform math ops on unlike types, java implicitly converts variables to a unifying type 
+  - "casted" up
+  - can perform type cast to __explicitly__ override unifying type imposed by java 
+
+    
 
 
     

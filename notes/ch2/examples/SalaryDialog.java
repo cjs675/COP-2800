@@ -13,8 +13,6 @@ public class SalaryDialog {
         & set it as a constant
         what if we gave the user the ability to input their hours worked/wk?
         */
-
-
         wageString = JOptionPane.showInputDialog(null,
                 "Enter employee's hourly wage", "Salary dialog 1",
                 JOptionPane.INFORMATION_MESSAGE);
