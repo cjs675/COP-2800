@@ -31,8 +31,15 @@ public class CompanyInfo
     public static void main(String[] args)
     {
         System.out.println("Smart Electronics");
-        displayHours();
+        displayHours(); // call to method 
     }
 }
 ```
+- advantages of creating a separate method to display the three new lines: 
+  - by using a method call to execute the three separate __println()__ statements, the __main()__ method remains short and easy to follow
+  - by using a well named method, its easy to see overall intent of the separate __println()__ statements 
+  - a method is easily reusable. after you create the __displayHours__ method, can use it in __any__ application that needs the company's hours of operation 
+    - iotw, you do the work once, and can reuse the method many times 
+- before calling the method, the entire method itself must be defined within a class, outside of any other methods  
+- can't place a method within another method 
 

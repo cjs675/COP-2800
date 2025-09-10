@@ -1,0 +1,21 @@
+In this assignment, we are going to write a program
+that performs useful conversions between common units of measurement.
+
+  First, you will identify the units to convert from, the units to convert to,
+  and then the value to be converted as the inputs to the program.
+  Based on the options specified by the user, perform the requested conversion and
+  report the result.
+
+
+
+The units your program should support, at minimum, are:
+
+inches, feet, cubits, steps, yards, miles
+This means when you are done, the program should be able to convert to/from any of the units.
+
+After coding the program, run it and test it.  If there are errors, fix them, until the program works correctly.
+
+Code should be appropriately commented.  Proper variable naming conventions and other programming standards should be followed.
+
+Turn in the .java source file
+
