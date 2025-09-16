@@ -603,13 +603,13 @@ federalWithholding = grossPay * FEDERAL_RATE;
   - implicit conversions aka __promotion__
 - order for establishing unifying types between values: 
 ```
-double          ^
+double          ^ 
                 |
-float           |
+float           |  (8bytes)
                 |
-long            |
+long            |  (8bytes)
                 |
-int             | 
+int             |  (4bytes)
 
 short and byte are auto-converted to int when used in expressions 
 ``` 

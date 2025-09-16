@@ -1,5 +1,3 @@
-import java.sql.SQLOutput;
-
 public class CompanyInfo
 {
     public static void main(String[] args)

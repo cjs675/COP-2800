@@ -1,10 +1,8 @@
 import java.util.Scanner;
-import javax.swing.JOptionPane;
-
-public class UnitConversion
-{
-    public static void main(String[] args)
-    {
+import javax.swing.*;
+/*
+public class UnitConversion {
+    public static void main(String[] args) {
         String inputUnit, outputUnit, amount;
         final double INCHES_IN_FEET = 12;
         final double FEET_IN_YARDS = 3;
@@ -16,20 +14,46 @@ public class UnitConversion
         final double INCHES_IN_STEPS = 0.03;
         final double CUBITS_IN_MILES = 0.0003;
 
-        takeInput();
+        //  takeInput();
+        showDialog();
     }
-    public static void takeInput()
+}
+    /*public static void takeInput()
     {
         Object[] unitOptions = { "Inches", "Feet", "Yards", "Cubits", "Steps", "Miles" };
+        Icon ImageIcon = new ImageIcon("/Users/data/Code/school/COP-2800/notes/ch3/fsw_logo.png");
         Object selectedInput = JOptionPane.showInputDialog(null,
                 "Select a base unit", "You Convert",
                 JOptionPane.INFORMATION_MESSAGE,
-                null,
+                ImageIcon,
                 unitOptions, unitOptions[0]);
+        Object selectedOutput = JOptionPane.showInputDialog(null,
+                )
     }
 
-}
+     public static void showDialog()
+     {
+         Object[] possibilities = {"ham", "spam", "yam"};
+         Icon ImageIcon = new ImageIcon("/Users/data/Code/school/COP-2800/notes/ch3/fsw_logo.png");
+         String a = (String) JOptionPane.showInputDialog(
+                 null,
+                 "Complete the sentence:\n"
+                         + "\"Green eggs and...\"",
+                 "Customized Dialog",
+                 JOptionPane.PLAIN_MESSAGE,
+                 ImageIcon,
+                 possibilities,
+                 "ham");
+         String b = (String) JOptionPane.showInputDialog(
+                 null,
+                 JOptionPane.PLAIN_MESSAGE,
+                 possibilities,
+                 "spam"
+         );
 
+     }
+}
+*/
 
 
 
