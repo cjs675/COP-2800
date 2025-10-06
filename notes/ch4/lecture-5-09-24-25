@@ -1,0 +1,68 @@
+using classes & objects
+
+comments
+    - baeldung Javadoc -> good reference
+    - good habit to write comments as you go
+        - useful in your portfolio to show employers you know how
+        - document demo projects
+    - (Swagger.io) - for java web services
+    - turning in assignments with JavaDoc    -- turn in screenshot of index.html
+        - generate html
+        - put enough comments into the code
+        - name
+        - project
+        - class
+        - methods
+        - attributes
+- class = data type (one we create), an encapsulated object
+    composed of methods & properties
+    - a class is instantiated
+        except for static classes (don't require an instance)
+     - methods are invoked
+     - properties are accessed
+     -  client (caller) creates objects
+     - client invokes object methods or accesses its properties
+- provide reusability
+    - by encapsulating our understanding of an object, it houses the data about an object & the operations we may employ
+    - used to organize related implementations
+    - can represent abstract objects with multiple implementations (interfaces)
+    - can represent hierarchies of objects that inherit implementations, codifying commonalities & specifications
+
+- static: objects aren't instantiated (you don't create an instance)
+   - 100 references gets you 1 actual copy
+ - non static: classes from which you create instances to use them
+    - 100 instances gets you 100 copies
+- a class can have a static & non-static members, but if the class is static, all members are static
+
+
+- each class has a constructor
+    - special method that gets called whenever you create a new instance of the class
+    - same name as class, no return type, can have params
+ - if not specified, default constructor is present (no params)
+    - as all classes derive from the Object class
+- if you provide constructors with params, no default provided
+- multiple overloaded constructors can be created
+    - in this way, a default constructor always exists, but you can provide your own, depending on needs
+
+- sometimes nice to create copy of an instance
+    - copy constructor: pass an instance of the same object as a parameter
+        - takes a reference to the same object
+        - implement the constructor to copy all the property values over
+- Annotations
+    - decorations on java classes, methods, properties that provide metadata
+    - @Depracated
+    - @Overrides
+        - when doing inheritance, easy to accidentally use the same function name as the "base" class
+        - this annotation lets the compiler know it was intentional
+    - can create custom annotations
+    - common one involves JSON serialization
+- libraries
+    - how to import?
+    - how to use?
+    - useful when using code written by others
+
+
+
+
+ToDo:
+    - practice writing javadocs
