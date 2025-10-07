@@ -539,9 +539,9 @@ public static void calculateInterest(double bal, int rate)
   - an overloaded method with different parameter lists is not ambiguous on its own 
     - becomes ambiguous only if you make an ambiguous method call 
     - a program containing a potentially ambiguous situation will run problem free if no ambiguous method calls are made 
-- __Note:__ 
-  - methods can be successfully overloaded by providing different parameter lists for methods with the same name 
-  - methods with identical names that have identical parameter lists but different return types are not overloaded - they're __illegal__ 
+  - __Note:__ 
+    - methods can be successfully overloaded by providing different parameter lists for methods with the same name 
+    - methods with identical names that have identical parameter lists but different return types are not overloaded - they're __illegal__ 
 - __ex.__ 
 ```java
 // the following two methods are illegal in the same class 
@@ -568,6 +568,8 @@ Don't Do It
 - don't try to overload methods by giving them different return types 
   - if their identifiers and parameter lists are the same, then two methods are ambiguous no matter what their return types are 
 ```
+
+
  
 
 

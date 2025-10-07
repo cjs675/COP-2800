@@ -17,9 +17,11 @@ public class ParadiseInfo2
         displayInfo();
         savings = computeDiscountInfo(price, discount);
 
-        System.out.println("Special thhis week on any service over " + price);
+        System.out.println("Special this week on any service over " + price);
         System.out.println("Discount of " + discount + "percent");
         System.out.println("That's a savings of at least $" + savings);
+
+        returnDiscount(5.0);
     }
     public static void displayInfo()
     {
@@ -32,5 +34,15 @@ public class ParadiseInfo2
         savings = price * discountRate / 100;
         return savings;
     }
+
+    public static double returnDiscount(double price)
+    {
+        double discount;
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Enter a discount: ");
+        discount = keyboard.nextDouble();
+        return discount;
+    }
+
 }
 
