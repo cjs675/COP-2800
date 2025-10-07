@@ -4,6 +4,7 @@ public class Employee
     private String empLastName;
     private String empFirstName;
     private double empSalary;
+    private double rate;
 
     public int getEmpNum()
     {
@@ -42,6 +43,15 @@ public class Employee
     public void setEmpSalary(double sal)
     {
         empSalary = sal;
+    }
+
+    public double calculateWithholding(double sal, final double rate)
+    {
+        double withholding;
+        final double RATE = 0.05;
+        withholding = empSalary * RATE;
+        return withholding;
+
     }
 }
 
