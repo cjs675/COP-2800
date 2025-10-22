@@ -8,39 +8,46 @@ import java.util.Scanner;
 
 public class NumSysCon
 {
+    private static String input;
+    private static int parsedInput;
+
     public static void main(String[] args)
     {
-        String input;
-        int parsedInput;
+
         Scanner userInput = new Scanner(System.in);
-        System.out.println("\n Enter a string of 1 to 16 0's and 1's");
+        System.out.println("\nEnter a binary value between 1 - 16 digits: \t\n");
 
         input = userInput.nextLine();
-        parsedInput = Integer.parseInt(input, 2);
 
-        System.out.println(" decimal value = " + parsedInput);
+        binaryToDecimal();
         binaryToOctal();
+        binaryToHexadecimal();
+
+        userInput.close();
     }
 
     public static void binaryToDecimal()
     {
+        parsedInput = Integer.parseInt(input, 2);
+        System.out.println("Decimal: " + parsedInput);
 
     }
     public static void binaryToOctal()
     {
-        String input;
-        int parsedInput;
+        // input parsed as binary (base 2) then converted to string equivalent in octal (base 8)
 
-        Scanner userInput = new Scanner(System.in);
-        System.out.println("\n enter a string of 1's and 0's");
-        input = userInput.nextLine();
-        parsedInput = Integer.parseInt(input, 8);
-        System.out.println("octal rep: " + parsedInput);
+        parsedInput = Integer.parseInt(input, 2);
+        String octalRep = Integer.toOctalString(parsedInput);
+        System.out.println("Octal: " + octalRep);
 
     }
     public static void binaryToHexadecimal()
     {
+        // input parsed as binary (base 2) then converted to string equivalent in hexadecimal (base 16)
 
+        parsedInput = Integer.parseInt(input, 2);
+        String hexRep = Integer.toHexString(parsedInput);
+        System.out.println("Hexadecimal: " + hexRep);
 
     }
 }
