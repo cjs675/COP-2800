@@ -8,113 +8,108 @@ import java.util.Scanner;
 
 public class NumSysCon
 {
-
     public static void main(String[] args)
     {
-        // A new scanner object is created which takes input from the user
         Scanner userInput = new Scanner(System.in);
 
         String input = "";
-
         // To validate the input before calculation, we check whether it's equal to 0, greater than 16 or null
-        // the program continues taking input as long as these conditions are met
-        while (input.length() == 0 || input.length() >= 16 || input.equals("0"))
+        // the program continues taking input as long as these conditions are not met
+        while (input.length() == 0 || input.length() > 16 || input.equals("0"))
         {
             System.out.println("\nPlease enter a binary value of up to 16 digits\n");
             input = userInput.nextLine();
         }
+        // Converts binary string input (base-2) received to its decimal base (base-10)
+        // parseInt() takes the input string and radix 2 (base of 2 for binary)
+        // This integer value is passed to conversion methods below
+        int decimalValue = Integer.parseInt(input, 2);
 
-        // Input stored in a local variable of reference type Integer
-        // calling the parseInt() method which takes in the input as an argument
-        // the parseInt() method takes the input, along with a radix, which is used to calculate the base of the input
-        int parsedInput = Integer.parseInt(input, 2);
-
-        binaryToDecimal(parsedInput);
-        binaryToOctal(parsedInput);
-        binaryToHexadecimal(parsedInput);
-
+        // Each method is passed the binary value in its decimal format
+        // The methods then perform their corresponding calculations to output the binary value in their respective formats
+        binaryToDecimal(decimalValue);
+        binaryToOctal(decimalValue);
+        binaryToHexadecimal(decimalValue);
         userInput.close();
     }
-
-    public static void binaryToDecimal(int parsedInput)
+    /**
+     * Displays the decimal representation with positional breakdown
+     * Calculates and extracts each digit with the value in its respective place
+     * @param decimalValue the decimal integer to be displayed
+     */
+    public static void binaryToDecimal(int decimalValue)
     {
-        // Extract each decimal digit using division and modulo
-        // The position of
-        int hundredThousandsPos = (parsedInput / 100000) ;
-        int tenThousandsPos = (parsedInput / 10000) % 10;
-        int thousandsPos = (parsedInput / 1000) % 10;
-        int hundredsPos = (parsedInput / 100) % 10;
-        int tensPos = (parsedInput / 10) % 10;
-        int onesPos = parsedInput % 10;
+        // Extract each digit using (value / position) % 10
+        int digit100000 = (decimalValue / 100000) ;
+        int digit10000 = (decimalValue / 10000) % 10;
+        int digit1000 = (decimalValue / 1000) % 10;
+        int digit100 = (decimalValue / 100) % 10;
+        int digit10 = (decimalValue / 10) % 10;
+        int digit1 = decimalValue % 10;
 
-        System.out.println("\n1\t" + "\t" + onesPos);
-        System.out.println("10\t" + "\t" + tensPos);
-        System.out.println("100\t" + "\t" + hundredsPos);
-        System.out.println("1000\t" + thousandsPos);
-        System.out.println("10000\t" + tenThousandsPos);
-        System.out.println("100000\t" + hundredThousandsPos);
+        System.out.println("\n1\t" + "\t" + digit1);
+        System.out.println("10\t" + "\t" + digit10);
+        System.out.println("100\t" + "\t" + digit100);
+        System.out.println("1000\t" + digit1000);
+        System.out.println("10000\t" + digit10000);
+        System.out.println("100000\t" + digit100000);
 
-        System.out.println("Decimal: " + parsedInput + "\n");
-
+        System.out.println("Decimal: " + decimalValue + "\n");
     }
 
-    public static void binaryToOctal(int parsedInput)
-    {
-        // input parsed as binary (base 2) then converted to string equivalent in octal (base 8)
+    /**
+     * Displays the octal representations with positional breakdown
+     * Calculates and extracts each digit with the value in its respective place
+     * @param decimalValue the decimal integer to be converted to octal
+     */
+    public static void binaryToOctal(int decimalValue)
+{
+        // Creates an octal-formatted string to display in the final print statement
+        String octalRep = Integer.toOctalString(decimalValue);
 
-        /**
-         * octalRep String object is assigned to an octal "base-equivalent" String
-         * takes parsedInput (base 2) as an argument
-         */
-        String octalRep = Integer.toOctalString(parsedInput);
-        /**
-         * octalValue takes an octal base value of the octalRep String object
-         * takes octalRep (base 8) as an argument
-         */
-        int octalValue = Integer.parseInt(octalRep, 8);
+        // Extract each octal digit using (value / position) % 8
+        int digit262144 = (decimalValue / 262144) % 8;
+        int digit32768 = (decimalValue / 32768) % 8;
+        int digit4096 = (decimalValue / 4096) % 8;
+        int digit512 = (decimalValue / 512) % 8;
+        int digit64 = (decimalValue / 64) % 8;
+        int digit8 = (decimalValue / 8) % 8;
+        int digit1 = decimalValue % 8;
 
-        // To calculate the respective position of the binary input in the desired format:
-        // - take parsed binary value in correct number system
-        // - divide value in respective number system by corresponding position value
-        // - use modulo to return remainder (desired digit) in position value
-        int pos262144 = (octalValue / 262144) % 8;
-        int pos32768 = (octalValue / 32768) % 8;
-        int pos4096 = (octalValue / 4096) % 8;
-        int pos512 = (octalValue / 512) % 8;
-        int pos64 = (octalValue / 64) % 8;
-        int pos8 = (octalValue / 8) % 8;
-        int pos1 = octalValue % 8;
-
-        System.out.println("1\t" + "\t" + pos1);
-        System.out.println("8\t" + "\t" + pos8);
-        System.out.println("64\t" + "\t" + pos64);
-        System.out.println("512\t" + "\t" + pos512);
-        System.out.println("4096\t" + pos4096);
-        System.out.println("32768\t" + pos32768);
-        System.out.println("262144\t" + pos262144);
+        System.out.println("1\t" + "\t" + digit1);
+        System.out.println("8\t" + "\t" + digit8);
+        System.out.println("64\t" + "\t" + digit64);
+        System.out.println("512\t" + "\t" + digit512);
+        System.out.println("4096\t" + digit4096);
+        System.out.println("32768\t" + digit32768);
+        System.out.println("262144\t" + digit262144);
 
         System.out.println("Octal: " + octalRep + "\n");
-
     }
 
-    public static void binaryToHexadecimal(int parsedInput)
+    /**
+     * Converts and displays the hexadecimal representation with positional breakdown
+     * Calculates and extracts each hex digit and displays both hex and decimal values
+     * @param decimalValue the decimal integer to be converted to hexadecimal
+     */
+    public static void binaryToHexadecimal(int decimalValue)
     {
-        String hexRep = Integer.toHexString(parsedInput);
+        // Converts the decimal integer value to hexadecimal string format for display
+        String hexRep = Integer.toHexString(decimalValue);
 
-        // Extract each hex digit from parsedInput
-        int tenThousandsPos = (parsedInput / 65536) % 16;
-        int thousandsPos = (parsedInput / 4096) % 16;
-        int hundredsPos = (parsedInput / 256) % 16;
-        int tensPos = (parsedInput / 16) % 16;
-        int onesPos = parsedInput % 16;
+        // Extract each hexadecimal digit using (value / position) % 16
+        int digit65536 = (decimalValue / 65536) % 16;
+        int digit4096 = (decimalValue / 4096) % 16;
+        int digit256 = (decimalValue / 256) % 16;
+        int digit16 = (decimalValue / 16) % 16;
+        int digit1 = decimalValue % 16;
 
-        System.out.println("1\t\t" + Integer.toHexString(onesPos) + "\t" + onesPos);
-        System.out.println("16\t\t" + Integer.toHexString(tensPos) + "\t" + tensPos);
-        System.out.println("256\t\t" + Integer.toHexString(hundredsPos) + "\t" + hundredsPos);
-        System.out.println("4096\t" + Integer.toHexString(thousandsPos) + "\t" + thousandsPos);
-        System.out.println("65536\t" + Integer.toHexString(tenThousandsPos) + "\t" + tenThousandsPos);
+        System.out.println("1\t\t" + Integer.toHexString(digit1) + "\t" + digit1);
+        System.out.println("16\t\t" + Integer.toHexString(digit16) + "\t" + digit16);
+        System.out.println("256\t\t" + Integer.toHexString(digit256) + "\t" + digit256);
+        System.out.println("4096\t" + Integer.toHexString(digit4096) + "\t" + digit4096);
+        System.out.println("65536\t" + Integer.toHexString(digit65536) + "\t" + digit65536);
 
         System.out.println("Hexadecimal: " + hexRep);
-
     }
 }
