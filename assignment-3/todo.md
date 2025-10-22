@@ -1,9 +1,9 @@
 ## fitness tracker 
 
-- objective: write program to help track fitness data 
-    - write java class that contains several methods,
+- objective: write a program to help track fitness data 
+    - write a java class that contains several methods,
     property getters/setters, logic to simulate a fitness tracker 
-    - class should store & track users: 
+    - class should store & track user' s: 
         - daily steps
         - distance walked
         - calories burned 
@@ -13,7 +13,7 @@
 ### requirements 
 - min. 2 files 
     - 1: main method 
-        - acts as test driver 
+        - acts as a test driver 
         - main job: 
             - create an instance (perhaps several) of the FitnessTracker object
             - call its methods & test the FitnessTracker class 
