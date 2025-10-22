@@ -13,12 +13,4 @@
   - keeps project organized & clean 
   - when running programs, JVM executes __.class__ files from __/out__ instead of source __.java__ files 
   - intelliJ only recompiles changed files, storing results in __/out__ for faster builds
-### intelliJ live templates  
-- ```public static void main(String[] args) entrypoint```
-  - main + tab
-- ```System.out.println();```
-  - sout + tab
-- ```System.out.printf();``` 
-  - soutf + tab 
-- ```public static final```
-  - psf + tab  
+
