@@ -409,11 +409,11 @@ __ex.__ [MethodsThatUseAnEmployee]
 - Recall: 
     - when declaring a primitive variable or instantiating an object from a class, you provide both a type & an identifier 
     - an instantiated object can be passed into or returned from a method 
-    - the addres of an instantiated object can be assigned to a declared reference of the __same__ type 
+    - the address of an instantiated object can be assigned to a declared reference of the __same__ type 
 
 ## 4.6 creating & using constructors 
 - when creating a class, such as __Employee__ & instantiating an object with such a statement like the following, we're calling the __Employee__ class constructor that is provided by 
-default by Java compiler: e
+default by Java compiler: 
   ``Employee chauffeur = new Employee();``
 - a constructor establishes an object 
 - a __default constructor__ requires no args 
@@ -425,7 +425,7 @@ default by Java compiler: e
     - boolean fields set to false 
     - fields that are object refs (String fields) set to null 
 - if we don't want each field in an object to hold these default values, can write own constructor 
-- any constructor you write: 
+- any constructor we write: 
   - must have same name as class it constructs 
   - cannot have a return type (not even void)
 - normally, constructors declared __public__ so other classes can instantiate objects that belong to the class 
@@ -438,13 +438,117 @@ default by Java compiler: e
         empSalary = 800;
       }
       ```
-  
+- any java statement can be written in a constructor 
+- constructor can be placed anywhere within inside the class, outside any other method 
+- constructors typically placed with other methods 
+  - often listed first since its first method used when an object is created 
+- __never__ required to write a constructor for a class to make a class that compiles without errors 
 
 
+### creating constructors with parameters 
+- in addition to writing default contstructor for a class, can also write versions that receive parameters 
+  - often used to initialize data fields for an object 
+
+```java
+/** the following shows the Employee class with a default constructor that initializes the empNum field  
+ * constructor assigns 999 to the empNum of each potentially instantiated Employee object 
+ * anytime an Employee object is created using a statement such as: 
+ * Employee partTimeWorker = new Employee();
+ * even if no other data assigning methods are used, this ensures that the partTimeWorker Employee, like all 
+ * Employee objects, will have an initial empNum of 999
+*/
+public class Employee
+{
+    private int empNum;
+    Employee()
+    {
+        empNum = 999;
+    }
+}
+```
+- we can also create __Employee__ objects in a way so that their initial __empNum__ values differ for each __Employee__ 
+  - to accomplish this when the object is instantiated, can pass an employee # to the constructor: 
+```java
+/** the following shows the Employee class which contains a constructor that receives a parameter 
+ * args to the constructor can be passed as: 
+ * Employee = partTimeWorker = new Employee(991);
+ * when the constructor executes, the integer within the constructor call is passed to Employee() as the parameter (num), 
+ * which is assigned to the (empNum) field 
+ */
+public class Employee
+{
+    private int empNum;
+    Employee(int num)
+    {
+        empNum = num;
+    }
+}
+```
+- when creating an __Employee__ class with a constructor in the manner shown above, every __Employee__ object created must have an __integer arg__ in its constructor call 
+  - iotw, with this new version of the class, the following statement no longer works: 
+  ``Employee partTimeWorker = new Employee()``
+- after writing a constructor for a class, no logner receive the auto. provided default constructor 
+  - if a class's only constructor requires an arg, must provide an arg for every object of the class that is created 
+- in order to create a constructor with params & provide a default constructor as well, can __overload__ the constructors 
+  - provides way to create objects with different initializing args, or none, as needed 
+- __ex.__ 
+  - in addition to using the provided constructor (above) 
+  - can create 2nd constructor for the __Employee__ class
+  - when using this class to create an __Employee__ object, have option of creating the object either with or without an initial __empNum__ value 
+
+```java
+public class Employee
+{
+    private int empNum;
+    Employee(int num)
+    {
+        empNum = num;
+    }
+    Employee()
+    {
+        empNum = 999;
+    }
+}
+```
+- when an __Employee__ object is created with the statement: 
+  - ``aWorker = new Employee()``
+  - constructor with no params is called, & __Employee__ object receives an initial __empNum__value of 999
+- when an __Employee__ object with is created with the statement: 
+  - ``Employee anotherWorker = new Employee(7677);`` 
+  - constructor version that requires an integer is used, & the __anotherWorker Employee__ receives an initial __empNum__ of 7677
+- can use constructor args to initialize field values
+  - can also be used for any other purpose 
+    - ex. could use presence/absence of an arg simply to determine which of two possible constructors to all
+      - yet not make use of the arg within the constructor 
+    - as long as param lists differ, the constructors are not ambiguous 
+
+__Note:__ 
+    - a default constructor is one that takes no args 
+    - the constructor that is created auto. when one is not written is a default constructor, but so is one that is written to take no args 
 
 
-
-
-
+## 4.7 the "this" reference  
+- when creating classes, they can become large very quickly 
+  - besides data fields, can have many methods 
+    - including several overloaded versions 
+- when instantiating an object from a class, memory is reserved for each instance field in the class 
+- __ex.__ 
+  - if class contains 20 data fields, when creating one object from such class, enough memory is reserved to hold the 20 field values for that object 
+  - when creating 200 objects of the same class, the computer reserves enough memory for 4000 data fields 
+    - 20 fields for each of the 200 objects 
+    - in many apps, computer memory reqs. can become substantial 
+      - fortunately, objects can __share__ some variables & methods 
+- __recall:__ 
+  - if a field or method name is preceded by keyword __static__ when its declared, only one field or method exists, no mater how many objects are instantiated 
+  - iotw - if a field is __static__, only one copy of the field exists 
+    - all objects created have the same value for that field
+- frequently want each instantiation of a class to have its own copy of each data field so that each object can hold unique values 
+  - __ex.__
+    - if an __Employee__ class contains fields for: 
+      - employee number 
+      - name 
+      - salary 
+    - every individual __Employee__ object needs a unique number, name and salary value 
+- fields that hold unique values for each object are not defined as __static__ 
 
 

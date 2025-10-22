@@ -1,0 +1,11 @@
+- solidify grasp on Javadocs 
+    - correct structure 
+
+- JSON in java 
+    - saves significant amount of space 
+- localDateTime 
+
+
+- conditionals go in CLASS 
+    - not main
+    - main used to prompt user 

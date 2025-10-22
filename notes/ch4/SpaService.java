@@ -9,6 +9,20 @@ public class SpaService
     private String serviceDescription;
     private double price;
 
+
+    // explicit default constructor which sets serviceDescription to XXX & price to 0
+    public SpaService()
+    {
+        serviceDescription = "XXX";
+        price = 0;
+    }
+    public SpaService(String desc, double pr)
+    {
+        serviceDescription = desc;
+        price = pr;
+    }
+
+
     // methods that set field values (setters)
 
     // setServiceDescription method accepts a String parameter & assigns it to
