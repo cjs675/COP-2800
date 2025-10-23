@@ -1,11 +1,13 @@
-/* FitnessTracker.java
+/**
+ * FitnessTracker.java
  * Author: Chris Silva
+ * Class: COP-2800
  * Assignment: Module 4 - Fitness Tracker
  * Description: This program represents a Fitness tracker which monitors daily activity
  * Tracks:
- * steps, distance walked, calories burned, heart rate
+ * Steps, distance walked, calories burned, heart rate
  * Provides:
- * methods to track progress, reset daily statistics
+ * Methods to track progress, reset daily statistics and check if goals have been met
  */
 
 public class FitnessTracker
@@ -23,42 +25,90 @@ public class FitnessTracker
     /** Conversion factor: cals per step */
     public static final float CALORIES_PER_STEP =  0.04F;
 
+    /**
+     * Gets the user's name
+     * @return the user's name
+     */
     public String getName() {return name;}
 
+    /**
+     * Sets the user's name
+     * @param name the name set for this user
+     */
     public void setName(String name) { this.name = name; }
 
-    public double getDailySteps() { return dailySteps; }
+    /**
+     * Gets the daily step count
+     * @return the number of steps taken today
+     */
+    public int getDailySteps() { return dailySteps; }
 
+    /**
+     * Sets the daily step count
+     * @param dailySteps the number of steps set
+     */
     public void setDailySteps(int dailySteps) { this.dailySteps = dailySteps; }
 
+    /**
+     * Gets the distance walked
+     * @return the distance walked
+     */
     public double getDistanceWalked() { return distanceWalked; }
 
+    /**
+     * Sets the distance walked
+     * @param distanceWalked sets the distance walked for this user
+     */
     public void setDistanceWalked(double distanceWalked)
     {
         this.distanceWalked = distanceWalked;
     }
 
+    /**
+     * Gets the calories burned
+     * @return the calories burned
+     */
     public double getCalsBurned() { return calsBurned; }
 
+    /**
+     * Sets the calories burned
+     * @param calsBurned the number of calories burned
+     */
     public void setCalsBurned(double calsBurned)
     {
         this.calsBurned = calsBurned;
     }
 
+    /**
+     * Gets the current heart rate
+     * @return the current heart rate
+     */
     public int getHeartRate() { return heartRate; }
 
+    /**
+     * Sets the current heart rate
+     * @param heartRate the user's heart rate in beats per min. (BPM)
+     */
     public void setHeartRate(int heartRate) { this.heartRate = heartRate; }
 
-    // Explicit default constructor which sets all values null
-    // name is initialized to an empty string
-    // instance variables get initialized to zero by default
+    /**
+     * Explicit default constructor that sets all values within FitnessTracker to zero
+     * Initializes name as an empty string and all numeric fields to zero
+     */
     public FitnessTracker()
     {
        name = "";
     }
 
-    // parameterized constructor that accepts values for all fields
-    // initializes all field values
+    /**
+     * Parameterized constructor that accepts values for all fields
+     * Initializes values for all parameters
+     * @param name the user's name
+     * @param dailySteps the initial step count
+     * @param distanceWalked the initial distance walked in kilometers
+     * @param calsBurned the initial calories burned
+     * @param heartRate the initial heart rate
+     */
     public FitnessTracker(String name, int dailySteps, double distanceWalked, double calsBurned, int heartRate)
     {
         this.name = name;
@@ -68,11 +118,9 @@ public class FitnessTracker
         this.heartRate = heartRate;
     }
 
-// methods
-
     /**
      * Adds the given number of steps to the current total
-     * @param steps
+     * @param steps the number of steps to add to the daily total
      */
     public void addSteps(int steps)
     {
@@ -82,6 +130,7 @@ public class FitnessTracker
     /**
      * Calculates distance walked in kilometers
      * Updates distanceWalked property
+     * @return the calculated distance in kilometers
      */
     public double calculateDistance()
     {
@@ -91,7 +140,7 @@ public class FitnessTracker
 
     /**
      * Calculates calories burned based off the cal/step constant
-     * @return
+     * @return the calculated calories burned
      */
     public double calculateCalories()
     {
@@ -101,7 +150,7 @@ public class FitnessTracker
 
     /**
      * Updates current heart rate
-     * @param newHeartRate
+     * @param newHeartRate the new heart rate value in bpm (beats per minute)
      */
     public void updateHeartRate(int newHeartRate)
     {
@@ -133,7 +182,7 @@ public class FitnessTracker
 
     /**
      * Sets a goal for a number of steps
-     * @param goalSteps
+     * @param goalSteps the target number of steps set for each user
      */
     public void setGoalSteps(int goalSteps)
     {
@@ -142,6 +191,8 @@ public class FitnessTracker
 
     /**
      * Checks if a user's daily step goal has been met
+     * Prints a congratulatory message if the current steps walked are greater than the goal.
+     * Prints the number of remaining steps if goal is not yet met
      */
     public void checkGoal()
     {
@@ -149,8 +200,8 @@ public class FitnessTracker
 
         if (dailySteps >= stepsGoal)
             System.out.println(
-                            "\n|----------------Congratulations " + name + "!---------------|" +
-                            "\n|-------------Daily step goal has been met-------------|"
+                            "\n|----------------Congratulations " + name + "!--------------->" +
+                            "\n|------------Daily step goal has been met------------->"
             );
         else
             System.out.println(
