@@ -1,5 +1,6 @@
 public class FitnessTracker
 {
+<<<<<<< HEAD
     // field declarations
     private String name;
     private double dailySteps;
@@ -36,5 +37,8 @@ public class FitnessTracker
 
     }
 
+=======
+    
+>>>>>>> e0f1c770584c976950c46575aa9d232448ceaa09
 
 }
