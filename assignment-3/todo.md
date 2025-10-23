@@ -3,11 +3,8 @@
 - objective: write a program to help track fitness data 
     - write a java class that contains several methods,
     property getters/setters, logic to simulate a fitness tracker 
-<<<<<<< HEAD
     - class should store & track user's: 
-=======
     - class should store & track user' s: 
->>>>>>> e0f1c770584c976950c46575aa9d232448ceaa09
         - daily steps
         - distance walked
         - calories burned 
