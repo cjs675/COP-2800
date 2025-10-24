@@ -3,11 +3,8 @@
  * Author: Chris Silva
  * Class: COP-2800
  * Assignment: Module 4 - Fitness Tracker
- * Description: This program represents a Fitness tracker which monitors daily activity
- * Tracks:
- * Steps, distance walked, calories burned, heart rate
- * Provides:
- * Methods to track progress, reset daily statistics and check if goals have been met
+ * Description: This program represents a Fitness tracker which monitors steps, distance walked, calories burned and heart rate.
+ * It provides methods to track progress, reset daily statistics and check if goals have been met.
  */
 
 public class FitnessTracker
@@ -169,7 +166,7 @@ public class FitnessTracker
 
     /**
      * Returns a summary of a user's daily fitness-related stats
-     * @return a formatting String with name, steps taken, distance walked, calories burned & current heart rate
+     * @return a formatting String with name, steps taken, distance walked, calories burned and current heart rate
      */
     public String toString()
     {
