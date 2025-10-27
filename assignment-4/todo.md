@@ -25,9 +25,9 @@
             - dinnerMeal: what you plan to have for dinner tonight (String) 
         - __constructors__
             - default constructor that initializes all values to zero 
-            - parameterized constructor that accepts values for the fields declared within the src.GoodDay class 
+            - parameterized constructor that accepts values for the fields declared within the GoodDay class 
         - __methods__
-            - to be called at least once, likely severla times in _main_
+            - to be called at least once, likely several times in _main_
             1. __isTodayGood()__ 
                 - returns if today is good overall, or false otherwise
                 - determined by all factors considered 
@@ -47,5 +47,5 @@
     ### turn in 
     - .java source files 
         - Main.java 
-        - src.GoodDay.java 
+        - GoodDay.java 
     - Javadoc index.html screenshot 
