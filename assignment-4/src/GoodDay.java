@@ -78,4 +78,21 @@ public class GoodDay
     {
         dinnerMeal = "";
     }
+
+    /**
+     * Parameterized constructor which accepts values for all fields
+     * Initializes values for all parameters
+     *
+     * @param temperature the current temperature
+     * @param humidity the current humidity
+     * @param isHomeworkDone whether all homework is completed
+     * @param dinnerMeal a dinner meal to be had
+     */
+    public GoodDay(int temperature, double humidity, boolean isHomeworkDone, String dinnerMeal)
+    {
+        this.temperature = temperature;
+        this.humidity = humidity;
+        this.isHomeworkDone = isHomeworkDone;
+        this.dinnerMeal = dinnerMeal;
+    }
 }
