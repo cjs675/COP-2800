@@ -11,9 +11,9 @@
 - (2+) files 
     - __1st -> main method__ 
         - act as test driver 
-        - create instance (several) of GoodDay object
+        - create instance (several) of src.GoodDay object
         - call its methods 
-        - test GoodDay class 
+        - test src.GoodDay class 
         - print strings to console reporting ops 
     - __2nd -> implements GoodDay class__ 
         - public properties (with getters & setters) 
@@ -25,7 +25,7 @@
             - dinnerMeal: what you plan to have for dinner tonight (String) 
         - __constructors__
             - default constructor that initializes all values to zero 
-            - parameterized constructor that accepts values for the fields declared within the GoodDay class 
+            - parameterized constructor that accepts values for the fields declared within the src.GoodDay class 
         - __methods__
             - to be called at least once, likely severla times in _main_
             1. __isTodayGood()__ 
@@ -47,5 +47,5 @@
     ### turn in 
     - .java source files 
         - Main.java 
-        - GoodDay.java 
+        - src.GoodDay.java 
     - Javadoc index.html screenshot 
