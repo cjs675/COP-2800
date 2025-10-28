@@ -20,7 +20,7 @@
 ### the if statement 
 - simplest statement that can be used to make a decision 
 - aka __single-alternative selection__ (offers only one alternative - the true alternative) 
-- equal sign (==) used to determine quality 
+- double equal sign (==) used to determine equality --> __equivalency operator__ 
 ```
 if (quizScore == 10)
         {
@@ -39,6 +39,18 @@ if (quizScore == 10)
     - equivalency operators compare objects' references 
   - to compare values of objects -> write specialized methods 
 - object names are __references__, but values that are simple data types are not 
+``` 
+- an alternative to using a boolean expression in an __if__, such as __quizScore == 10__ is to store the boolean expression's value in a __boolean__ type variable 
+  - __ex.__ 
+  - if __isPerfectScore__ is a boolean variable, then the following statement compares __quizScore__ to 10 and stores __true__ or __false__ in __isPerfectScore__: 
+  ```
+isPerfectScore = (quizScore == 10);
+
+if (isPerfectScore)
+{
+System.out.println("The score is perfect");
+}
+
 
 ### the if..else statement 
 - __if...else__ statement provides mechanism to perform one action when a boolean expression evaluates as __true__ and a different action when a boolean expression evaluates to __false__ 
@@ -53,5 +65,37 @@ if (quizScore == 10)
 else 
     System.out.println("It's not perfect");
 ```
+
+## 5.3 using multiple statements in if and if...else clauses  
+- often, wish to take more than one action following the evaluation of a boolean expression within an if statement 
+- __ex.__ might wish to display several lines of output or perform several math calcs. 
+  - to execute more than one statement that depends on the evaluation of a boolean expression, use pair of {} to place dependent statements within a block 
+  ```
+  if (hoursWorked > FULL_WEEK)
+    {
+        regularPay = FULL_WEEK * rate;
+        overtimePay = (hoursWorked - FULL_WEEK) * OT_RATE * rate;
+    }
+  ```
+  - indentation __does not__ cause statements following an __if__ statement to be dependent 
+    - rather, curly braces {} required if multiple statements must be treated as a block 
+    - correct blocking is crucial to achieving valid output 
+  - when failing to block statements that should depend on an __if__, and an __else__ clause is used, the program won't compile 
+  - __ex.__ Payroll (containing an if and else clause with blocks)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
