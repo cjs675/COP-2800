@@ -20,7 +20,7 @@
             - will have private/protected variable (data member) & public getter/setter methods for __each__ property created 
         - __properties (for starters)__
             - temperature: current temperature (int) 
-            - humidity: current humidty (double) 
+            - humidity: current humidity (double) 
             - isHomeworkDone: whether all homework is completed or not (Boolean) 
             - dinnerMeal: what you plan to have for dinner tonight (String) 
         - __constructors__
@@ -38,7 +38,7 @@
                 - returns description of how good/bad/to what degree based on value of other properties 
         - can create own properties and implement logic to calculate goodness or badness 
         - __required__ forms of selection: 
-            - nested if 
+            - nested if
             - compound if 
             - switch (old or enhanced) 
 

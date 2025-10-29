@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class AssignVolunteer
+public class AssignVolunteer2
 {
     public static void main(String[] args)
     {
