@@ -81,5 +81,17 @@ public class genericBox
         {
             return t;
         }
+
+        // generic type invocation creates a reference to the generic box class
+        // passes type argument (Integer) to Box class
+        // parameterized type
+        Box<Integer> integerBox;
+
+        // instantiation of Box class
+        Box<Integer> integerBox = new Box<Integer>();
+
+
+
+
     }
 }
