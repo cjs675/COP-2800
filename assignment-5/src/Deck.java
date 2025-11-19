@@ -1,5 +1,6 @@
 package src;
 
+import java.util.Arrays;
 import java.util.random.RandomGenerator;
 
 public class Deck
@@ -8,13 +9,20 @@ public class Deck
     // An array of type Card[] to hold 52 Card objects
     private final Card[] deck;
 
+
     /**
      * Explicit default constructor for the Deck class.
-     * Sets up an empty Deck object with an array of 52 Card objects
+     * Sets up an empty Deck object with an empty array of Card objects
      */
     public Deck()
     {
         deck = new Card[52];
+    }
+
+    public void printEmptyDeck()
+    {
+         System.out.println(Arrays.toString(this.deck));
+
     }
 
     public void fill()

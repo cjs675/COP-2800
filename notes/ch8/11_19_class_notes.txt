@@ -14,3 +14,6 @@
 - final assignment:
     - docker container running springboot webserver + couchbaseDB
     - include swaggerUI for api docs
+
+
+- jar files
