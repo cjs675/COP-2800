@@ -5,12 +5,18 @@ import java.util.random.RandomGenerator;
 public class Deck
 {
 
+    // An array of type Card[] to hold 52 Card objects
     private final Card[] deck;
 
+    /**
+     * Explicit default constructor for the Deck class.
+     * Sets up an empty Deck object with an array of 52 Card objects
+     */
     public Deck()
     {
         deck = new Card[52];
     }
+
     public void fill()
     {
         int index = 0;
@@ -23,6 +29,7 @@ public class Deck
         }
 
     }
+
     public void shuffle()
     {
         RandomGenerator random  = RandomGenerator.getDefault();
