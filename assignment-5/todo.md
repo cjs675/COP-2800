@@ -12,7 +12,7 @@
 
 
 ### requirements 
-- 3 files (Main.java, Deck.java, Cards.java)
+- 3 files (src.Main4.java, Deck.java, Cards.java)
 - main acts as test driver 
     - create instances, perhaps several of the Deck object 
     - call its (Deck object's) methodss, test the class 
@@ -21,7 +21,7 @@
 - deck file implements deck class 
 - Cards file implements the cards class
 
-- card & deck objects should not allow user input ir print statements in them 
+- card & deck objects should not allow user input or print statements in them 
 
 
 
@@ -47,3 +47,10 @@
         - create a string that returns two characters
             - 1 for the rank 
             - 1 for the suit 
+            - 
+- requires using an array 
+- code should be appropriately commented using Javadoc 
+  - proper naming conventions & other programming standards to be followed 
+- 5 deliverables: 
+  - .java source files for each class 
+  - generate javadoc & turn in screenshot of Deck & Card classes javadoc 

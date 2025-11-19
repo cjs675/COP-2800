@@ -9,12 +9,12 @@ package src;
 public class GoodDay
 {
     // field declarations
-    int temperature;
-    Double humidity;
-    boolean isWorkoutDone;
-    String workout;
-    boolean isHomeworkDone;
-    String dinnerMeal;
+    private int temperature;
+    private Double humidity;
+    private boolean isWorkoutDone;
+    private String workout;
+    private boolean isHomeworkDone;
+    private String dinnerMeal;
 
     /**
      * Gets the current temperature.

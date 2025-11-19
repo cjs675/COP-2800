@@ -1,5 +1,5 @@
 /**
- * Main.java
+ * src.Main4.java
  * Author: Chris Silva
  * Class: COP-2800
  * Assignment: Module 4 - Fitness Tracker

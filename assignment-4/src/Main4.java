@@ -1,13 +1,14 @@
 package src;
 
-public class Main
+
+public class Main4
 {
     public static void main(String[] args)
     {
         // object construction
         GoodDay user_1 = new GoodDay();
 
-          // object field initialization
+        // object field initialization
         user_1.setTemperature(73);
         user_1.setHumidity(42.1);
         user_1.setWorkoutStatus(true);
@@ -28,7 +29,6 @@ public class Main
         System.out.println("\n[  User 1  ]\n" + user_1.toString());
         System.out.println("\n[  User 1  ]\n" + user_1.isTodayGood());
         System.out.println(user_1.getDayScore());
-
 
     }
 }

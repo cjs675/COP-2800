@@ -330,18 +330,351 @@ else
 ```
 - an alternative to using a series of nested if statements is to use the __switch__ statement 
 - __switch__ statement useful when you need to test a single variable against a series of exact integer (int, byte, short), character or string values 
-- 
+- uses 4 key words: 
+  - __switch__ starts the statement and is followed immediately by a test expression enclosed in parentheses  
+  - __case__ followed by one of the possible values for the test expression and a colon
+  - __break__ optionally terminates a switch statement at the end of each case 
+  - __default__ optionally is used prior to any action that should occur if the test variable does not match any case 
+
+- __ex.__ determining class status using a switch statement  
+
+```
+// begins by evaluating the year var in first line 
+// if year == 3 --> case 3 executes 
+// break statement bypasses rest of switch statement 
+// if year var contains none of cases, default executes 
+switch(year)
+{
+    case 1:
+        System.out.println("Freshman");
+        break;
+    case 2: 
+        System.out.println("Sophomore");
+        break;
+    case 3: 
+        System.out.println("Junior");
+        break;
+    case 4: 
+        System.out.println("Senior");
+        break
+    default 
+        System.out.println("Invalid year");
+}
+```
+- not required to list case values in ascending order, as in ex. above 
+  - helps with readability 
+- can leave out __break__ statements in a switch, however if done, and program finds a match for the test variable, all the statements within the switch 
+from that point on execute 
+- should only intentionally omit __break__ statements if you wish for all subsequent cases to execute after the test variable is matched 
+
+```
+switch(day)
+{
+    case "Monday":
+        System.out.println("Reserve room for friday meeting");
+    case "Tuesday":
+        System.out.println("Prepare powerpoint slides"); 
+    case "Wednesday":
+        System.out.println("Send out meeting reminders"); 
+    case "Thursday":
+        System.out.println("Order snacks for deliver"); 
+    case "Friday":
+        System.out.println("Meeting 10 am"); 
+    default: 
+        System.out.println("Invalid day"); 
+    
+}
+```
+- don't need to write code for __each__ case in a switch statement 
+- __ex.__
+  - suppose the supervisor for dep. 1, 2, 3 is _Jones_, but other deps. have different supervisors 
+  - in this case: 
+```
+// using empty case statements so the same result occurs in multiple places  
+
+int deparment;
+String supervisor;
+
+// statements to get department go here
+switch(department)
+{
+    case 1:
+    case 2: 
+    case 3: 
+        supervisor = "Jones";
+        break;
+    case 4:
+        supervisor = "Staples";
+        break;
+    case 5: 
+        supervisor = "Tejano";
+        break;
+    default: 
+        System.out.println("Invalid department code");
+}
+```
+
+- method that uses a __switch__ statement with string values 
+```
+public static boolean isValidSupervisor(String name) 
+{
+    boolean isValid;
+    switch(name) 
+    {
+        case "Jones":
+        case "Staples":
+        case "Tejano":
+            isValid = true;
+            break;
+        default:
+            isValid = false;
+    }
+    return isValid;
+}
+```
+- when several __char__ variables must be checked & we wish to ignore whether they're uppercase or lowercase, one frequently used technique employs case statements
+```
+// using a switch statement to ignore character case 
+
+switch(deparmentCode)
+{
+    case 'a':
+    case 'A':
+        departmentName = "Accounting";
+        break;
+    case 'm':
+    case 'M':
+        departmentName = "Marketing";
+        break;
+}
+```
+
+### using the switch expression 
+
+- __switch expression__ -> another option that can be used in >v14 when all cases result in an __assignment__ of the variable 
+- the following ex. shows a __switch__ expression used to compare the __char__ variable _departmentCode_ to different values 
+
+```
+switch(departmentCode)
+{
+    case 'a', 'A' -> departmentName = "Accounting";
+    case 'm', 'M' -> departmentName = "Marketing";
+}
+```
+- differences with the above option: 
+  - keyword _case_ isn't repeated for each ase in a category; instead, multiple case labels are separated by commas 
+  - assignment operator isn't used to assign a value to __departmentName__, instead the _arrow operator_ __->__  is used  
+  - in the switch expression, each case does not have to end with the keyword _break_ 
+    - makes structure shorter 
+    - no forgetting to include a break 
+
+- switch expressions can also be used within an output statement, as shown: 
+```
+System.out.println(switch(departmentCode)
+{
+    case 'A', 'a' -> "Accounting";
+    case 'M', 'm' -> "Marketing";
+    default -> "Invalid department";
+}); // closing brace ends the switch, closing parenthesis & semicolon end println() call 
+```
+
+- the result of a switch statement case can also be a block as shown:
+  - suppose that when the code is 'm' or 'M', we wish to display some text as well as assigning "Marketing" to the departmentName string 
+  - i.t.c., can use the keyword __yield__ to return a value 
+```
+departmentName = switch(departmentCode)
+{
+    case 'a', 'A' -> "Accounting"; 
+    case 'm', 'M' -> 
+    {
+        System.out.println("Note that the marketing department"); 
+        System.out.println("is closed on Fridays");
+        yield "Marketing";
+    }
+    default       -> "Invalid";
+};
+```
+
+- never required to use a __switch__ statement or a __switch__ expression; can always achieve same results with nested __if__ statements 
+  - using switch is simply convenient when several alt. courses of action depend on a value 
+  - most devs choose an __if__ statement if there were only 2–3 options and use a __switch__ statement for more
+  - in addition, makes more sense to use __switch__ only when a reasonable number of specific matching values needs to be tested
+    - ex. if every integer value from 1 - 100 results in same action, a single __if__ is far easier to write than a switch 
 
 
+## 5.8 using the conditional and NOT operators 
+
+- besides using if & switch statements, java also provides __conditional operator__ 
+  - requires 3 expressions separated with a question mark & a colon 
+  - used as an abbreviated version of if..else statement 
+  - as with the switch statement, never _required_ to use conditional operator, simply a convenient shortcut 
+
+- syntax: 
+
+``` testExpression ? trueResult : falseResult;```
+
+- the first expression, __testExpression__ is a boolean that is evaluated as true or false 
+  - if true, entire conditional expression takes on the value of the expression following the question mark (trueResult) 
+  - if false, entire expression takes on value of __falseResult__ 
+- while __==__ and __&&__ are binary operators, the conditional operator is a __ternary operator__ -- one that needs three operands 
+- __ex.__ 
+  - wish to assign smaller of two values, a & b, to a variable named __smallerNum__ 
+  - the expression that can be used is: 
+```
+smallerNum = (a < b) ? a : b;
+```
+- when evaluating the expression (a < b), if a is less than b, the entire conditional expression takes the value to the left of the colon, a, which is then assigned to __smallerNum__ 
+- if a is _not_ less than b, then the expression assumes the value to the right of the colon, and b is assigned to __smallerNum__ 
+- the same result could be achieved with the following if..else statement: 
+
+```
+if(a < b)
+    smallerNum = a;
+else 
+    smallerNum = b;
+```
+
+### using the NOT operator 
+- used to negate the result of any boolean expression 
+- any expression that revalues to true → false when preceded by NOT operator 
+- any expression that evaluates to false → true when preceded by NOT operator  
+- using the NOT operator is clearer hwen the value of a boolean variable is tested 
+- __ex.__ 
+  - suppose monthly car insurance premium = $200 if age <= 25 
+    - $125 when age >= 26
+  - four if..else statments that all do the same thing 
+```
+if(age <= 25) 
+    premium = 200;
+else 
+    premium = 125;
+    
+if(!(age <=25))
+    premium = 125;
+else 
+    premium = 200;
+    
+if(age >= 26)
+    premium = 125;
+else 
+    premium = 200;
+    
+if(!(age >= 26))
+    premium = 200;
+else 
+    premium = 125; 
+```
 
 
+## 5.9 understanding operator precedence 
+- can combine as many __&&__ or __||__ operators in an expression as needed to make a decision
+  - __ex.__ 
+    - if we wish to award bonus points to any student who receives a perfect score on nay of four quizzes, might wright a statement such as the following: 
+```
+if(score1 == PERFECT || score2 == PERFECT || 
+   score3 == PERFECT || score4 == PERFECT) 
+   bonus = BONUS;
+else 
+    bonus = 0;
+```
+- in this case, if at least __one__ of the score variables is equal to the PERFECT constance, the student receives the bonus points 
+- although you can combine any number of && or || operators in an expression, special care must be taken when mixed 
+- arithmetic ops have higher and lower precedences, and an operator's precedence makes a difference in how an expression is evaluated 
+  - ex. 
+    - with an arithmetic expression, multiplication and division are always performed prior to addition or subtraction 
+    - in same way, __&&__ has higher precedence than __||__ 
+
+| precedence | operators                         | symbols(s) |
+|------------|-----------------------------------|------------|
+| Highest(9) | Logical NOT                       | !          |
+| 8          | Multiplication, division, modulus | * / %      |
+| 7          | Addition, subtraction             | + -        |
+| 6          | relation                          | > < >= <=  |
+| 5          | equality                          | == !=      |
+| 4          | logical AND                       | &&         |
+| 3          | logical OR                        | \|\|       |
+| 2          | Conditional                       | ?:         |
+| 1          | Assignment                        | =          |
 
 
+```
+// assigns extra premiums correctly 
+if((trafficTrickets > 2 || age < 25) && carCode == 'S')
+    extraPremium = 200;
+    
+// assigns extra premiums incorrectly 
+if(trafficTrickets > 2 || age < 25) && carCode == 'S')
+    extraPremium = 200;
+```
+- one way to remember the precedence of the AND and OR operators is to remember that they are evaluated in alphabetical order 
+- the following two conventions are important to keep in mind: 
+  - order in which operators are used makes a difference
+  - can always use parentheses to change precedence or make intentions clearer 
 
+## 5.10 making constructors more efficient by using decisions in other methods 
+- will frequently want to use what has been learned about decision-making to control the allowed values in objects' fields 
+- whether values are assigned to objects by constructors or by mutator methods, will often need to use decisions to restrict the values assigned to fields 
+- __ex.__ 
+  - suppose __Employee__ class has been created (below)
+``` 
+// Employee class that contains a constructor that makes decisions 
 
-
-
-
+public class Employee 
+{
+    private int empNum;
+    private double payRate;
+    public final int MAX_EMP_NUM = 9999;
+    public final double MAX_RATE = 60.00;
+    public Employee(int num, double rate)
+    {
+        if(num <= MAX_EMP_NUM)
+            empNum = num;
+        else 
+            empNum = MAX_EMP_NUM;
+        if(payRate <= MAX_RATE)
+           payRate = rate;
+        else 
+            payRate = 0;
+    }
+}
+```
+- the class contains two fields that hold an employee number and pay rate 
+- the constructor accepts values for these default fields as parameters, but instead of simply assigning the parameters to the fields, the code determines whether each value is within the allowed limits for the field 
+- if the Employee class also contained set methods for __empNum__ and __payRate__ and the rules governing appropriate values were the same as the rules used in the constructor,
+then it'd make sense for the decisions to be made in the set methods and to code the constructor to call the set methods  
+  - in this manner, the decisions would appear only once in the class, saving time and space 
+  - if the rules needed to be changed later on, code would be changed just in once place
+  
+- the following example shows a class that uses the aforementioned technique of a constructor that calls set methods to make decisions: 
+```
+public class Employee
+{
+    privatre int empNum;
+    private double payRate;
+    public final int MAX_EMP_NUM = 9999;
+    public final double MAX_RATE = 60.00;
+    public Employee(int num, double rate)
+    {
+        setEmpNum(num); // the constructor calls the set methods instead of repeating 
+        setPayRate(rate); // the if statements to enforce the rules for the field values 
+    }
+    public boid setEmpNum(int num)
+    {
+        if(num <= MAX_EMP_NUM)
+            empNum = num;
+        else 
+            empNum = MAX_EMP_NUM;
+    }
+    public void setPayRate(double rate)
+    {
+        if(payRate <= MAX_RATE)
+           payRate = rate;
+        else 
+            payRate = 0;
+    }
+    }
+}
+```
 
 
 
