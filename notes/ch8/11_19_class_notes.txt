@@ -1,0 +1,16 @@
+- docker pull couchbase/latest
+- running NGINX webserver within container
+    - will throw 403 error at first when recognizes no static content to display
+- SimpleWebServiceApplication
+    --> springboot
+- re: SimpleWebService (repo linked in lecture vids)
+
+- get comfortable with:
+    - maven repository (for packages)
+    - springboot
+        - mapping
+        - @GetMapping
+
+- final assignment:
+    - docker container running springboot webserver + couchbaseDB
+    - include swaggerUI for api docs

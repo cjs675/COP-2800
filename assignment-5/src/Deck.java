@@ -27,7 +27,6 @@ public class Deck
                 deck[index++] = new Card(rank, suit);
             }
         }
-
     }
 
     public void shuffle()
