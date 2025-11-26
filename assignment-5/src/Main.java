@@ -12,6 +12,7 @@ public class Main
 {
     public static void main(String[] args)
     {
+
         // Empty card
         Card firstCard = new Card();
         System.out.println("\nFirst Card: " + firstCard.toString());
@@ -31,7 +32,6 @@ public class Main
         // Store the result of the comparison as an integer value
         int firstComparison = Card.compare(secondCard, fourthCard);
         int secondComparison = Card.compare(thirdCard, fourthCard);
-
         if (firstComparison < 0)
         {
             System.out.println(secondCard + " is less than " + fourthCard);
@@ -58,15 +58,16 @@ public class Main
             System.out.println(thirdCard + " is equal to " + fourthCard);
         }
 
+
         // Card reset
         secondCard.resetCard();
         thirdCard.resetCard();
         fourthCard.resetCard();
 
         System.out.println("\n------Cards after reset -------- " +
-                          "\n" + secondCard.toString() +
-                          "\n" + thirdCard.toString() +
-                          "\n" + fourthCard.toString());
+                          "\nSecond Card: " + secondCard.toString() +
+                          "\nThird Card: " + thirdCard.toString() +
+                          "\nFourth Card: " + fourthCard.toString());
 
         // Create an object containing deck of cards
         // fill, shuffle then print the deck
