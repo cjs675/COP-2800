@@ -12,16 +12,14 @@ services:
       test: ["CMD", "curl", "-f", "http://localhost:8091/pools"]
       interval: 10s
       timeout: 5s
-      retries: 10
-      start_period: 30s
+      retries: 15
+      start_period: 60s
     entrypoint: ["/bin/bash", "-c"]
     command:
       - |
         /entrypoint.sh couchbase-server &
-        sleep 15
-        chmod +x /init-couchbase.sh
-        /init-couchbase.sh
-        tail -f /dev/null
+        (sleep 30 && chmod +x /init-couchbase.sh && /init-couchbase.sh) &
+        wait
 
   webapp:
     build: .

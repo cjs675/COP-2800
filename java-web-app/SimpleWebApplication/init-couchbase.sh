@@ -3,7 +3,6 @@
 # this script is for the purposes of initializing a default couchbase cluster
 
 # wait 15 for DB to start
-sleep 15
 
 echo "Initializing Couchbase DB"
 
@@ -27,5 +26,3 @@ echo "Creating bucket..."
 echo "Couchbase initialized successfully"
 
 
-# keep couchbase container running, suppressing messages/logs
-tail -f /dev/null
