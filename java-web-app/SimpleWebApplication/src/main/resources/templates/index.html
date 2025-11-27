@@ -7,5 +7,21 @@
 </head>
 <body>
     <h1>Assignments: <span th:text="${name}"></span></h1>
+
+    <form th:action="@{/submit}" methods="post">
+        <table>
+            <tr>
+                <td><label for="userInput">Enter something: </label></td>
+                <td><input type="type" id="userInput" name="userInput" required /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Submit</button></td>
+            </tr>
+        </table>
+    </form>
+
+    <div th:if="${submittedValue}">
+        <h2>You submitted: <span th:text="${submittedValue}"></span></h2>
+    </div>
 </body>
 </html>
