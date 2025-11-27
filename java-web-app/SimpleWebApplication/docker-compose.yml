@@ -5,27 +5,25 @@ services:
     ports:
       - "8091-8096:8091-8096"
       - "11210:11210"
-    environment:
-      - COUCHBASE_ADMINISTRATOR_USERNAME=admin
-      - COUCHBASE_ADMINISTRATOR_PASSWORD=password
     volumes:
       - couchbase-data:/opt/couchbase/var
       - ./init-couchbase.sh:/init-couchbase.sh
-    # monitor when couchbaseDB = initialized, responding & ready to accept connections
     healthcheck:
-      # pools -> couchbase cluster status API
       test: ["CMD", "curl", "-f", "http://localhost:8091/pools"]
-      interval: 5s
-      timeout: 3s
-      retries: 6
-      start_period: 20s
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
     entrypoint: ["/bin/bash", "-c"]
     command:
       - |
-        /entrypoint.sh couchbase-server & 
+        /entrypoint.sh couchbase-server &
+        sleep 15
+        chmod +x /init-couchbase.sh
         /init-couchbase.sh
+        tail -f /dev/null
+
   webapp:
-    # move to current directory
     build: .
     container_name: spring-webapp
     ports:
@@ -38,5 +36,6 @@ services:
     depends_on:
       couchbase:
         condition: service_healthy
+
 volumes:
   couchbase-data:

@@ -16,16 +16,10 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(
-                                "/hello/**",
-                                "/swagger-ui/**",
-                                "/swagger-ui.html",
-                                "/v3/api-docs/**",
-                                "/swagger-resources/**",
-                                "/webjars/**"
-                        ).permitAll()
-                        .anyRequest().authenticated()
-                );
+                        .anyRequest().permitAll()
+                )
+                .formLogin(AbstractHttpConfigurer::disable) // disable form login
+                .httpBasic(AbstractHttpConfigurer::disable); // disable basic auth
         return http.build();
     }
 }

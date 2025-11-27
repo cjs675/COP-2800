@@ -5,22 +5,27 @@
 # wait 15 for DB to start
 sleep 15
 
-# initialize cluster
-couchbase-cli cluster-init -c 127.0.0.1 \
+echo "Initializing Couchbase DB"
+
+/opt/couchbase/bin/couchbase-cli cluster-init \
+  --cluster localhost \
   --cluster-username admin \
   --cluster-password password \
   --services data,index,query \
   --cluster-ramsize 512 \
-  --cluster-index-ramsize 256 || true
-# no trailing backslashes \ at end of final command
+  --cluster-index-ramsize 256
 
-# create couchbase bucket
-couchbase-cli bucket-create -c 127.0.0.1 \
+echo "Creating bucket..."
+/opt/couchbase/bin/couchbase-cli bucket-create \
+  --cluster localhost \
   --username admin \
   --password password \
   --bucket users \
   --bucket-type couchbase \
-  --bucket-ramsize 256 || true
+  --bucket-ramsize 256
+
+echo "Couchbase initialized successfully"
+
 
 # keep couchbase container running, suppressing messages/logs
 tail -f /dev/null
